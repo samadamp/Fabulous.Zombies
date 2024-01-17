@@ -45,7 +45,7 @@ Att jobba med tid i programmering kan snabbt bli väldigt komplext. Därför är
 ## Arbetsmetod
 Ni ska jobba i team om 3-4 pers. Gällande arbetsflödet kring koden skall [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) användas.
 
-Ert projekt kommer inledas med att ni tillsammans i teamet granskar de tekniska krav samt vilka funktioner appen innehåller. Utifrån dessa skapar ni en lista med *features* som nedtecknas någonstans kollektivt, förslagsvis på ett [github projekt](https://github.com/features/project-management/) kopplat till ert repo, alt. [Trello](https://trello.com/).
+Ert projekt kommer inledas med att ni tillsammans i teamet granskar de tekniska krav samt vilka funktioner appen innehåller. Utifrån dessa skapar ni en lista med *features* som nedtecknas någonstans kollektivt, förslagsvis på [Trello](https://trello.com/).
 
 En ur teamet skapar ett repo på github och bjuder in de andra som *collaborators*. Personen som skapar repot ansvarar även för att skapa en *develop* branch.
 
