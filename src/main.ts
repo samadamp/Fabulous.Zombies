@@ -1,5 +1,10 @@
 import "./style.css";
 import moment from 'moment';
+import analogfunctions from "./modules/analog";
+
+analogfunctions.myfunction();
+analogfunctions.newFunction();
+
 
 const now = moment();
 console.log(now.format('YYYY-MM-DD HH:mm:ss'));
