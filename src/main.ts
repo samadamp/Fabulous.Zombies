@@ -1,4 +1,4 @@
-import "./style.css";
+import "./scss/styles.scss";
 import moment from 'moment';
 import analogfunctions from "./modules/analog";
 
