@@ -7,21 +7,22 @@
     <title>Interval App</title>
   </head>
   <body>
-    <section class="clock">
-      <div class="minutes">
-        <div class="min"></div>
-      </div>
-      <div class="seconds">
-        <div class="sec"></div>
-      </div>
-    </section>
-    <section class="timer">
-      <form id="timerForm">
-        <label for="timerInput"></label>
-        <input type="text" id="timerInput" placeholder="Example: 15:00">
-        <button type="button" id="startTimerBtn">Start Timer</button>
-      </form>
-    </section>
+    <div class="timer-section">
+      <label for="timerSelect">Choose Timer Interval:</label>
+      <select id="timerSelect">
+        <option value="5">5 minutes</option>
+        <option value="10">10 minutes</option>
+        <option value="15">15 minutes</option>
+        <option value="20">20 minutes</option>
+        <option value="25">25 minutes</option>
+      </select>
+      <button id="startTimerBtn">Start Timer</button>
+    </div>
+    
+    <div class="clock">
+      <div class="hand minute-hand"></div>
+      <div class="hand second-hand"></div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

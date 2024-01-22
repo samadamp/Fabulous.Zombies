@@ -1,40 +1,58 @@
 //funktionerna för analoga timer
 import moment from 'moment';
 
-function setTimer(){
-    const deg: number = 6;
-    const min: HTMLElement | null = document.querySelector('.min');
-    const sec: HTMLElement | null = document.querySelector('.sec');
-    const timerInput: string = (<HTMLInputElement>document.getElementById('timerInput')).value;
-    const timerMoment: moment.Moment = moment(timerInput, 'mm:ss');
-    const mm: number = timerMoment.minutes() * deg;
-    const ss: number = timerMoment.seconds() * deg;
 
+function startAnalogTimer() {
+  const deg: number = 6;
+  const minuteHand: HTMLElement | null = document.querySelector('.minute-hand');
+  const secondHand: HTMLElement | null = document.querySelector('.second-hand');
+  const timerSelect: HTMLSelectElement | null = document.getElementById('timerSelect') as HTMLSelectElement;
 
-    if (min && sec) {
-        min.style.transform = `rotateZ(${mm}deg)`;
-        sec.style.transform = `rotateZ(${ss}deg)`;
-        console.log(`Transform updated - Minutes: ${mm}, Seconds: ${ss}`);
-    
+  if (!minuteHand || !secondHand || !timerSelect) {
+    console.error('Elements not found.');
+    return;
+  }
+
+  let timerInterval: number | null = null;
+  let endTime: moment.Moment | null = null;
+
+  function updateClock() {
+    if (!endTime || !minuteHand || !secondHand) {
+      console.error('End time or clock hands not set.');
+      return;
     }
+
+    const currentTime: moment.Moment = moment();
+    const remainingTime: moment.Duration = moment.duration(endTime.diff(currentTime));
+
+    const mm: number = remainingTime.minutes() * deg;
+    const ss: number = remainingTime.seconds() * deg;
+
+    minuteHand.style.transform = `rotateZ(${mm}deg)`;
+    secondHand.style.transform = `rotateZ(${ss}deg)`;
+
+    console.log(`Remaining Time: ${remainingTime.minutes()} minutes ${remainingTime.seconds()} seconds`);
+
+  }
+
+  function setTimer() {
+    const selectedMinutes: number = parseInt(timerSelect?.value || '0', 10);
+
+    if (isNaN(selectedMinutes)) {
+      console.error('Invalid timer interval. Please select a valid interval.');
+      return;
+    }
+
+    endTime = moment().add(selectedMinutes, 'minutes');
+
+    clearInterval(timerInterval as number);
+    updateClock();
+    timerInterval = setInterval(updateClock, 1000);
+  }
+
+  document.getElementById('startTimerBtn')?.addEventListener('click', setTimer);
 }
 
-function myfunction(){
-    console.log("hello");
-    anotherFunction();
-    
-};
 
-function newFunction(){
-    console.log("bajs");
-    
-}
-
-function anotherFunction (){
-    console.log("Hjehej");
-    
-}
-
-
-export default {myfunction, newFunction, setTimer}
+export default {startAnalogTimer}
 

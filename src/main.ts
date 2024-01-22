@@ -2,15 +2,13 @@ import "./scss/styles.scss";
 import moment from 'moment';
 import analogfunctions from "./modules/analog";
 
-analogfunctions.myfunction();
-analogfunctions.newFunction();
-analogfunctions.setTimer();
+analogfunctions.startAnalogTimer();
 
 const startTimerBtn: HTMLButtonElement | null = document.getElementById('startTimerBtn') as HTMLButtonElement;
 
 if (startTimerBtn) {
     startTimerBtn.addEventListener('click', () => {
-      analogfunctions.setTimer();
+      analogfunctions.startAnalogTimer();
     });
 }
 
