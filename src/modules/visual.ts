@@ -1,56 +1,55 @@
+import Timer from 'easytimer.js';
 
-import moment from 'moment';
+let duration: number;
+let timer: Timer;
+let container: HTMLElement;
 
-class VisualTimer {
-  duration: number;
-  startTime: moment.Moment;
-  container: HTMLElement;
-  intervalId: number | null;
+function setDuration(newDuration: number) {
+  duration = newDuration;
+  console.log('New Timer Duration:', duration);
+}
 
-  constructor(duration: number, containerId: string) {
-    this.duration = duration;
-    this.startTime = moment();
-    this.container = document.getElementById(containerId) || document.body;
-    this.intervalId = null;
-  }
+function startTimer() {
+  timer.start({ countdown: true, startValues: { seconds: duration } });
+}
 
+function stopTimer() {
+  timer.stop();
+}
 
-  setDuration(duration: number) {
-    this.duration = duration;
-  }
+function getTimeRemaining(): number {
+  return Math.max(timer.getTotalTimeValues().seconds, 0);
+}
 
-  startTimer() {
-    this.intervalId = setInterval(() => {
-      const remainingTime = this.getTimeRemaining();
-      const percentageComplete = (1 - remainingTime / this.duration) * 100;
-      this.updateVisualTimer(percentageComplete);
-
-      if (remainingTime === 0) {
-        this.stopTimer();
-      }
-    }, 1000);
-  }
-
-  stopTimer() {
-    if (this.intervalId !== null) {
-      clearInterval(this.intervalId);
-      this.intervalId = null;
-    }
-  }
-
-  getTimeRemaining(): number {
-    const elapsedSeconds = moment().diff(this.startTime, 'seconds');
-    return Math.max(this.duration - elapsedSeconds, 0);
-  }
-
-  updateVisualTimer(percentageComplete: number) {
-    if (this.container){
-        this.container.style.height = `${percentageComplete}%`;
-    }
+function updateVisualTimer(percentageComplete: number) {
+  if (container) {
+    container.style.height = `${percentageComplete}%`;
   }
 }
 
+function initializeTimer(initialDuration: number, containerId: string) {
+  duration = initialDuration;
+  timer = new Timer();
+  container = document.getElementById(containerId) || document.body;
 
+  timer.addEventListener('secondsUpdated', () => {
+    const remainingTime = getTimeRemaining();
+    const percentageComplete = (1 - remainingTime / duration) * 100;
+    updateVisualTimer(percentageComplete);
 
-export default VisualTimer;
+    if (remainingTime === 0) {
+      stopTimer();
+    }
 
+    console.log('Current Timer Value:', timer.getTimeValues().toString());
+  });
+}
+
+export {
+  setDuration,
+  startTimer,
+  stopTimer,
+  getTimeRemaining,
+  updateVisualTimer,
+  initializeTimer,
+};

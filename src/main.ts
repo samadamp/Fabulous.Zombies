@@ -1,26 +1,26 @@
 import "./scss/styles.scss";
-import moment from 'moment';
-import VisualTimer from './modules/visual';
+import * as VisualTimer from './modules/visual';
 
-
-const containerId = 'timer-wrapper'
+const containerId = 'timer-wrapper';
 const defaultDuration = 5;
 
-const visualTimer = new VisualTimer(defaultDuration * 60, containerId);
+VisualTimer.initializeTimer(defaultDuration * 60, containerId);
 
-
-
-const startButton = document.getElementById('startButton')
+const startButton = document.getElementById('startButton');
+const stopButton = document.getElementById('stopButton');
 const durationInput = document.getElementById('durationInput') as HTMLInputElement;
 
 if (startButton) {
-    startButton.addEventListener('click', () => {
-      const chosenDuration = parseInt(durationInput.value, 10) || defaultDuration;
-      visualTimer.setDuration(chosenDuration * 60);
-      visualTimer.startTimer();
-    });
-  }
+  startButton.addEventListener('click', () => {
+    const chosenDuration = parseInt(durationInput.value, 10) || defaultDuration;
+    VisualTimer.setDuration(chosenDuration * 60);
+    VisualTimer.startTimer();
+  });
+}
 
-
-
-
+if(stopButton){
+  stopButton.addEventListener("click", ()=>{
+    VisualTimer.stopTimer();
+    
+  })
+}
