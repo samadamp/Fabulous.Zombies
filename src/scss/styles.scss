@@ -1,7 +1,26 @@
-body{
-    background-color: rgb(190, 233, 140);
-    font-size: 4rem;
-    
+// src/scss/styles.scss
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
+#timer-wrapper {
+  width: 15%;
+  height: 70vh; /* Set the height of the wrapper container */
+  background-color: #53085a;
+  overflow: hidden; /* Hide overflowing content */
+  position: relative; /* Set position to relative */
+}
 
+#timer-container {
+  width: 20px;   /* Set a fixed width for the vertical bar */
+  height: 0;     /* Start with height 0 to begin from the top */
+  background-color: #53085a;
+  transition: height 5s linear; /* Increase the duration for visibility */
+  position: absolute; /* Set position to absolute */
+  bottom: 0; /* Align to the bottom of the container */
+}

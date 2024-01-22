@@ -1,41 +1,54 @@
+
 import moment from 'moment';
 
-let startTime: moment.Moment | null = null;
+class VisualTimer {
+  duration: number;
+  startTime: moment.Moment;
+  container: HTMLElement;
+  intervalId: number | null;
+
+  constructor(duration: number, containerId: string) {
+    this.duration = duration;
+    this.startTime = moment();
+    this.container = document.getElementById(containerId) || document.body;
+    this.intervalId = null;
+  }
 
 
-function updateTimer() {
-    if (startTime) {
-      const currentTime = moment();
-      const duration = moment.duration(currentTime.diff(startTime));
-      const formattedTime = moment.utc(duration.asMilliseconds()).format('HH:mm:ss');
-      document.getElementById('timer')!.innerText = formattedTime;
+  setDuration(duration: number) {
+    this.duration = duration;
+  }
+
+  startTimer() {
+    this.intervalId = setInterval(() => {
+      const remainingTime = this.getTimeRemaining();
+      const percentageComplete = (1 - remainingTime / this.duration) * 100;
+      this.updateVisualTimer(percentageComplete);
+
+      if (remainingTime === 0) {
+        this.stopTimer();
+      }
+    }, 1000);
+  }
+
+  stopTimer() {
+    if (this.intervalId !== null) {
+      clearInterval(this.intervalId);
+      this.intervalId = null;
     }
   }
-  
-  function startTimer() {
-    startTime = moment();
-    updateTimer();
-    setInterval(updateTimer, 1000);
-  }
-  
-  function stopTimer() {
-    clearInterval(0);
-    startTime = null;
-    updateTimer();
+
+  getTimeRemaining(): number {
+    const elapsedSeconds = moment().diff(this.startTime, 'seconds');
+    return Math.max(this.duration - elapsedSeconds, 0);
   }
 
+  updateVisualTimer(percentageComplete: number) {
+    if (this.container){
+        this.container.style.height = `${percentageComplete}%`;
+    }
+  }
+}
 
+export default VisualTimer;
 
-
-
-
-
-
-
-
-
-
-
-
-
-export default{updateTimer, startTimer, stopTimer}
