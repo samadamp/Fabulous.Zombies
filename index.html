@@ -1,21 +1,27 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+</head>
+
+<body>
 
 
-    <div id="timer-wrapper">
-      <div id="timer-container"></div>
-    </div>
-    <label for="durationInput">Timer Duration (minutes):</label>
+ 
+  <div id="timer-wrapper">
+    <div id="timer-container"></div>
+  </div>
+  <div id="controls-wrapper">
+    <label for="durationInput">Timer Duration (minutes): </label>
     <input type="number" id="durationInput" min="1" step="1" value="5">
-    <button id="startButton">START TIMER</button>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+    <button id="startButton">Start Timer</button>
+  </div>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
