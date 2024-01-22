@@ -14,7 +14,7 @@ function updateTimer() {
     document.getElementById('timer')!.innerText = formattedTime;
   }
 }
-
+// Grand Time = tiden från set time
 function startTimer() {
   startTime = moment();
   updateTimer();
@@ -26,8 +26,5 @@ function stopTimer() {
   startTime = null;
   updateTimer();
 }
-
-
-
 
 export default {updateTimer, startTimer, stopTimer}
