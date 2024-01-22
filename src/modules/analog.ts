@@ -7,11 +7,9 @@ function startAnalogTimer() {
   const minuteHand: HTMLElement | null = document.querySelector('.minute-hand');
   const secondHand: HTMLElement | null = document.querySelector('.second-hand');
   const timerSelect: HTMLSelectElement | null = document.getElementById('timerSelect') as HTMLSelectElement;
-
-  if (!minuteHand || !secondHand || !timerSelect) {
-    console.error('Elements not found.');
-    return;
-  }
+  const startTimerBtn: HTMLButtonElement | null = document.getElementById('startTimerBtn') as HTMLButtonElement;
+  const stopTimerBtn: HTMLButtonElement | null = document.getElementById('stopTimerBtn') as HTMLButtonElement;
+  
 
   let timerInterval: number | null = null;
   let endTime: moment.Moment | null = null;
@@ -33,6 +31,12 @@ function startAnalogTimer() {
 
     console.log(`Remaining Time: ${remainingTime.minutes()} minutes ${remainingTime.seconds()} seconds`);
 
+    if (remainingTime.asMilliseconds() <= 0) {
+        clearInterval(timerInterval as number);
+        stopTimerBtn!.style.display = 'none';
+        startTimerBtn!.style.display = 'inline-block';
+      }
+
   }
 
   function setTimer() {
@@ -48,9 +52,19 @@ function startAnalogTimer() {
     clearInterval(timerInterval as number);
     updateClock();
     timerInterval = setInterval(updateClock, 1000);
+
+    stopTimerBtn!.style.display = 'inline-block';
+    startTimerBtn!.style.display = 'none';
   }
 
-  document.getElementById('startTimerBtn')?.addEventListener('click', setTimer);
+  function stopTimer() {
+    clearInterval(timerInterval as number);
+    stopTimerBtn!.style.display = 'none';
+    startTimerBtn!.style.display = 'inline-block';
+  }
+
+  startTimerBtn.addEventListener('click', setTimer);
+  stopTimerBtn.addEventListener('click', stopTimer);
 }
 
 
