@@ -8,11 +8,6 @@ const defaultDuration = 5;
 
 const visualTimer = new VisualTimer(defaultDuration * 60, containerId);
 
-const timerWrapper = document.getElementById('timer-wrapper');
-
-if (timerWrapper) {
-  timerWrapper.classList.add('grow');
-}
 
 
 const startButton = document.getElementById('startButton')
