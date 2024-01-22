@@ -1,38 +1,44 @@
 
-  /* Update the SCSS styles */
+  
 body {
     height: 100vh;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
    
   }
   
+
+
   #timer-wrapper {
     width: 15%;
-    height: 0vh; /* Set the fixed height of the wrapper container */
+    height: 70vh; 
     background-color: #53085a;
-    overflow: hidden; /* Hide overflowing content */
-    position: fixed; /* Set position to fixed */
+    overflow: hidden; 
+    position: fixed; 
   }
   
   #timer-container {
-    width: 250px;   /* Set a fixed width for the vertical bar */
-    height: 0;      /* Start with height 0 to begin from the top */
+    width: 250px;   
+    height: 0;     
     background-color: #53085a;
-    transition: height 5s linear; /* Increase the duration for visibility */
-    position: absolute; /* Set position to absolute */
-    top: 0; /* Align to the top of the container */
+    transition: height 5s linear; 
+    position: absolute; 
+    top: 0; 
+    bottom: auto; 
   }
   
+
+  
   #controls-wrapper {
-    margin-top: 80vh; /* Adjust margin to align with the bottom of the timer-wrapper */
+    margin-top: 80vh; 
     display: flex;
-    flex-direction: column; /* Align children in a column */
+    flex-direction: column; 
     align-items: center;
   }
   
   #durationInput {
-    margin-bottom: 10px; /* Add margin for spacing */
+    margin-bottom: 10px; 
   }

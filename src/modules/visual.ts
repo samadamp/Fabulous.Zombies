@@ -50,5 +50,7 @@ class VisualTimer {
   }
 }
 
+
+
 export default VisualTimer;
 

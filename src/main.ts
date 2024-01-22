@@ -4,9 +4,15 @@ import VisualTimer from './modules/visual';
 
 
 const containerId = 'timer-wrapper'
-const defaultDuration = 5; // 5 minutes in seconds
+const defaultDuration = 5;
 
 const visualTimer = new VisualTimer(defaultDuration * 60, containerId);
+
+const timerWrapper = document.getElementById('timer-wrapper');
+
+if (timerWrapper) {
+  timerWrapper.classList.add('grow');
+}
 
 
 const startButton = document.getElementById('startButton')
