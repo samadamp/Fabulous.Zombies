@@ -1,5 +1,6 @@
 @import './base/reset';
 
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -26,8 +27,8 @@ body {
   
     .clock {
       position: relative;
-      width: 150px;
-      height: 150px;
+      width: 15rem;
+      height: 15rem;
       background-color: #f0f0f0;
       border-radius: 50%;
       border: 6px solid #333;
@@ -37,18 +38,24 @@ body {
   
       .min-pointer, .sec-pointer {
         position: absolute;
+        bottom: 50%;
+        left: 50%;
         background-color: #333;
-        transform-origin: 50% 100%;
+        transform-origin: bottom;
         transform: rotateZ(0deg);
-        transition: transform 0.5s cubic-bezier(0.4, 2.1, 0.5, 1);
-        width: 2px;
+/*         transition: transform 0.5s cubic-bezier(0.4, 2.1, 0.5, 1);
+ */     width: 2px;
         height: 50%;
       }
   
       .sec-pointer {
-        height: 1px;
-        background-color: red;
-      }
+        bottom: 50%;
+        left: 50%;
+        transform-origin: bottom;
+        background-color: rgb(210, 32, 32);
+        height: 50%;
+/*         transition: transform 0.5s cubic-bezier(0.4, 2.1, 0.5, 1);
+ */      }
     }
   }
   

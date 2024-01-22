@@ -8,7 +8,6 @@ const startTimerBtn: HTMLButtonElement | null = document.getElementById('startTi
 
 if (startTimerBtn) {
     startTimerBtn.addEventListener('click', () => {
-      analogfunctions.startAnalogTimer();
     });
 }
 
