@@ -15,9 +15,16 @@ body{
     
     .main-wrapper {
         height: 30vh;
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: large;
+        text-align: center;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
+        
+
 
         .img {
             height: 30vh;
