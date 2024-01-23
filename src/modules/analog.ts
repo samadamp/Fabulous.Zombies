@@ -17,7 +17,28 @@ function startAnalogTimer() {
       return;
     }
 
+    const currentTime: Moment = moment();
+    const remainingTime: Duration = moment.duration(endTime.diff(currentTime));
+
+    const mm: number = (remainingTime.minutes() * deg) + (remainingTime.seconds() / 60 * deg);
+    const ss: number = remainingTime.seconds() * deg;
+
+    console.log(`Current Time: ${currentTime.format('HH:mm:ss')}`);
+    console.log(`Remaining Time: ${remainingTime.minutes()} minutes ${remainingTime.seconds()} seconds`);
+    console.log(`Transform Values: ${mm}deg (minutes), ${ss}deg (seconds)`);
+
+    minuteHand.style.transform = `rotateZ(${mm}deg)`;
+    secondHand.style.transform = `rotateZ(${ss}deg)`;
+
+    console.log(`Remaining Time: ${remainingTime.minutes()} minutes ${remainingTime.seconds()} seconds`);
+
+    if (remainingTime.asMilliseconds() <= 0) {
+      clearInterval(timerInterval as number);
+      stopTimerBtn!.style.display = 'none';
+      startTimerBtn!.style.display = 'inline-block';
+    }
   }
+  
 
   function setTimer() {
     const selectedMinutes: number = parseInt(timerSelect?.value || '0', 10);
