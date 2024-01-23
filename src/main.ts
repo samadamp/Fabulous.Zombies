@@ -1,9 +1,7 @@
 import "./scss/styles.scss";
-import moment from 'moment';
-import analogfunctions from "./modules/analog";
 
-analogfunctions.myfunction();
-analogfunctions.newFunction();
+import timerFunctions from "./modules/settimer";
+
 
 
 const now = moment();
