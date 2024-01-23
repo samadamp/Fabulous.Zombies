@@ -1,55 +1,45 @@
-import Timer from 'easytimer.js';
+import moment from 'moment';
 
-let duration: number;
-let timer: Timer;
-let container: HTMLElement;
-
-function setDuration(newDuration: number) {
-  duration = newDuration;
-  console.log('New Timer Duration:', duration);
-}
+let timerInterval: number;
 
 function startTimer() {
-  timer.start({ countdown: true, startValues: { seconds: duration } });
+  const timer = document.getElementById('timer') as HTMLElement;
+  const durationInput = document.getElementById('duration') as HTMLInputElement;
+  const enteredMinutes: number = parseInt(durationInput.value, 10);
+  const durationInSeconds: number = enteredMinutes * 60;
+
+  timer.style.height = '100%';
+
+  let startTime: moment.Moment;
+
+  function updateTimer() {
+    const currentTime: moment.Moment = moment();
+    const elapsedTime: number = currentTime.diff(startTime, 'milliseconds');
+    const progress: number = (elapsedTime / (durationInSeconds * 1000)) * 100;
+
+    timer.style.height = progress + '%';
+    console.log(`Current Time: ${currentTime.format('YYYY-MM-DD HH:mm:ss')}`);
+
+    if (progress < 100) {
+      timerInterval = requestAnimationFrame(updateTimer);
+    }
+  }
+
+  startTime = moment();
+  updateTimer();
 }
 
 function stopTimer() {
-  timer.stop();
+  cancelAnimationFrame(timerInterval);
+  const timer = document.getElementById('timer') as HTMLElement;
+  timer.style.height = '0%';
 }
 
-function getTimeRemaining(): number {
-  return Math.max(timer.getTotalTimeValues().seconds, 0);
-}
+export default { stopTimer, startTimer };
 
-function updateVisualTimer(percentageComplete: number) {
-  if (container) {
-    container.style.height = `${percentageComplete}%`;
-  }
-}
 
-function initializeTimer(initialDuration: number, containerId: string) {
-  duration = initialDuration;
-  timer = new Timer();
-  container = document.getElementById(containerId) || document.body;
 
-  timer.addEventListener('secondsUpdated', () => {
-    const remainingTime = getTimeRemaining();
-    const percentageComplete = (1 - remainingTime / duration) * 100;
-    updateVisualTimer(percentageComplete);
 
-    if (remainingTime === 0) {
-      stopTimer();
-    }
 
-    console.log('Current Timer Value:', timer.getTimeValues().toString());
-  });
-}
 
-export {
-  setDuration,
-  startTimer,
-  stopTimer,
-  getTimeRemaining,
-  updateVisualTimer,
-  initializeTimer,
-};
+
