@@ -1,0 +1,38 @@
+body{
+    background-color: #050505;
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    main {
+        width: 20rem;
+        height: 20rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: large;
+        border-radius: 50%;
+        box-shadow:
+        0 0 10px 5px #fff,
+        0 0 20px 10px #00f,
+        0 0 30px 15px #0f0,
+        0 0 40px 20px #f00;
+        gap: 2rem;
+        
+
+        .img {
+            height: 30vh;
+        }
+
+
+    }
+}
+
+
+
