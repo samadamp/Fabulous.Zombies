@@ -1,7 +1,11 @@
 // function setTimer
 
 let unchangedTime = 10;
-let choosenTime ;
+export class Timer  {
+choosenTime :number = 10;
+
+
+}
 //event listener onclick leftbutton
 //event listener onclick rightbutton
 // When click on left choosenTime = unchangedTime - 1
@@ -19,3 +23,4 @@ function setTimer(choosenTime: number){
 choosenTime = unchangedTime;
 }
 // 
+ 
