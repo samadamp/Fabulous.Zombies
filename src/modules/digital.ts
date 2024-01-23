@@ -3,7 +3,7 @@ import { exTime } from './settimer';
 let myContainer = document.getElementById('stopBtn') as HTMLInputElement; myContainer.value = "Abort Time";
 
 //ändra texten på knappen
-let myContainer = document.getElementById('stopBtn') as HTMLInputElement; myContainer.value = "Abort Time";
+
 //document.getElementById(startBtn)?.innerText = "abort time";
 let startTime: moment.Moment | null = null;
 // event listener drop down button click overlay
