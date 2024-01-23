@@ -4,8 +4,12 @@ nav{
     
     
     li {
-        text-decoration: none;
-        list-style: none;
-        color: white;
+        list-style-type: none;
+        
+        a{
+            color: grey;
+            text-decoration: none;
+        }
     }
+
 }
