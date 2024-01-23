@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { exTime } from './settimer';
 let myContainer = document.getElementById('stopBtn') as HTMLInputElement; myContainer.value = "Abort Time";
 
 //ändra texten på knappen
