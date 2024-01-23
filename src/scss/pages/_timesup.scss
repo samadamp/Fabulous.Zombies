@@ -29,6 +29,16 @@ body{
         .img {
             height: 30vh;
         }
+        
+        .timerButton {
+            padding: 0.5rem;
+            opacity: 0.6;
+            /* border: 1px solid #0000; */
+            border-radius: 5px;
+        }
+        .timerButton &:hover {
+            background-color: #f8f8f8;
+        }
 
 
     }
