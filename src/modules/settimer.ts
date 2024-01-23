@@ -88,7 +88,7 @@ export { initializeTimer };
 
 
 let unchangedTime = 10;
-export class Timer  {
+export class exTime  {
 choosenTime :number = 10;
 
 
