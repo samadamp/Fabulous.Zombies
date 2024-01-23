@@ -1,4 +1,6 @@
 import moment from 'moment';
+let myContainer = document.getElementById('stopBtn') as HTMLInputElement; myContainer.value = "Abort Time";
+
 //ändra texten på knappen
 let myContainer = document.getElementById('stopBtn') as HTMLInputElement; myContainer.value = "Abort Time";
 //document.getElementById(startBtn)?.innerText = "abort time";
