@@ -11,11 +11,11 @@ let choosenTime ;
 
 function setTimer(choosenTime: number){
 
-//if left button click
+// if left button click
 
 // if right button click
 
-//if else 
+// if else 
 choosenTime = unchangedTime;
 }
 // 
