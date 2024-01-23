@@ -1,9 +1,13 @@
 import "./scss/styles.scss";
 import moment from 'moment';
 import analogfunctions from "./modules/analog";
+import { initializeTimer } from "./modules/settimer";
 
 analogfunctions.myfunction();
 analogfunctions.newFunction();
+initializeTimer({ containerId: 'timers-container', startButtonId: 'startButtonId', stopButtonId: 'stopButtonId' });
+
+
 
 
 const now = moment();
@@ -33,26 +37,6 @@ function startTimer(durationInMinutes: number) {
 // Exempel: Starta en timer på 5 minuter
 startTimer(5);
 
-const app = document.querySelector<HTMLDivElement>("#app")!;
-
-interface Todo {
-  id: number;
-  label: string;
-  description?: string;
-  done: boolean;
-}
-
-const todos: Todo[] = [
-  { id: 0, label: "buy groceries", done: true },
-  { id: 1, label: "buy eggs", done: false },
-  { id: 2, label: "sleep", done: true },
-];
-
-todos.forEach((todo) => {
-  const div = document.createElement("div");
-  div.innerHTML = `label: ${todo.label} - done: ${todo.done}`;
-  app.append(div);
-});
 
 
 
