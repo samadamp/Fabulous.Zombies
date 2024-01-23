@@ -1,11 +1,11 @@
 import "./scss/styles.scss";
 import moment from 'moment';
-import analogfunctions from "./modules/analog";
+/* import analogfunctions from "./modules/analog"; */
 
-analogfunctions.myfunction();
-analogfunctions.newFunction();
+/* analogfunctions.myfunction();
+analogfunctions.newFunction(); */
 
-
+/* 
 const now = moment();
 console.log(now.format('YYYY-MM-DD HH:mm:ss'));
 
@@ -52,7 +52,7 @@ todos.forEach((todo) => {
   const div = document.createElement("div");
   div.innerHTML = `label: ${todo.label} - done: ${todo.done}`;
   app.append(div);
-});
+}); */
 
 
 

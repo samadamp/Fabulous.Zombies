@@ -1,20 +1,5 @@
-//funktionerna för analoga timer
-function myfunction(){
-    console.log("hello");
-    anotherFunction();
-    
-};
+//funktionerna för Tiden är slut
+/* function */
 
-function newFunction(){
-    console.log("bajs");
-    
-}
-
-function anotherFunction (){
-    console.log("Hjehej");
-    
-}
-
-
-export default {myfunction, newFunction}
+/* export default {placeholder} */
 
