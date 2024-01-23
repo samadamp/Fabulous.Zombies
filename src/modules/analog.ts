@@ -8,8 +8,8 @@ function startAnalogTimer() {
   const startTimerBtn: HTMLButtonElement | null = document.getElementById('startTimerBtn') as HTMLButtonElement;
   const stopTimerBtn: HTMLButtonElement | null = document.getElementById('stopTimerBtn') as HTMLButtonElement;
 
-  let timerInterval: number | null = null;
-  let endTime: Moment | null = null;
+  let timerInterval: number | null;
+  let endTime: Moment | null;
 
   function updateClock() {
     if (!endTime || !minuteHand || !secondHand) {
