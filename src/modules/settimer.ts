@@ -33,6 +33,33 @@ function createTimerElements(): void {
     minutesElement.textContent = String(Math.max((parseInt(minutesElement.textContent!, 10) || 0) - 1, 0)).padStart(2, '0');
   });
 
+
+   // Create checkbox element for intervals
+   const intervalsCheckbox = document.createElement('input');
+   intervalsCheckbox.type = 'checkbox';
+   intervalsCheckbox.id = 'intervalsCheckbox';
+   intervalsCheckbox.name = 'intervalsCheckbox';
+   intervalsCheckbox.value = 'Intervals';
+ 
+   // Create label element for intervals
+   const intervalsLabel = document.createElement('label');
+   intervalsLabel.htmlFor = 'intervalsCheckbox';
+   intervalsLabel.textContent = 'Intervals';
+
+
+
+
+   const anotherCheckbox = document.createElement('input');
+  anotherCheckbox.type = 'checkbox';
+  anotherCheckbox.id = 'anotherCheckbox';
+  anotherCheckbox.name = 'anotherCheckbox';
+  anotherCheckbox.value = 'AnotherPurpose';
+
+  // Create label element for another purpose
+  const anotherLabel = document.createElement('label');
+  anotherLabel.htmlFor = 'anotherCheckbox';
+  anotherLabel.textContent = '5 min break / interval';
+
   //create start timer button
   const startButton = document.createElement('button')
   startButton.textContent = 'Start Timer'
@@ -41,16 +68,42 @@ function createTimerElements(): void {
 
   })
 
+  
   const container = document.createElement('div');
   container.id = 'app-container';
+  
 
   const timersContainer = document.createElement('div');
   timersContainer.id = 'timers-container';
 
+  const logoContainer = document.createElement('div');
+  const logoImage = document.createElement('img')
+  logoImage.src = 'src/images/navicon.svg';
+  logoImage.id = 'logoImage';
+  logoContainer.appendChild(logoImage);
+
+
+
+  
+
   const appContainer = document.body; 
   appContainer.appendChild(container);
 
+  container.appendChild(logoContainer);
   container.appendChild(timersContainer);
+
+
+  const checkboxesContainer = document.createElement('div');
+  checkboxesContainer.id = 'checkboxes';
+  checkboxesContainer.appendChild(intervalsCheckbox);
+  checkboxesContainer.appendChild(intervalsLabel);
+  checkboxesContainer.appendChild(document.createElement('br'));
+  checkboxesContainer.appendChild(anotherCheckbox);
+  checkboxesContainer.appendChild(anotherLabel);
+
+  container.appendChild(checkboxesContainer);
+
+
   container.appendChild(startButton);
 
   if (timersContainer) {
