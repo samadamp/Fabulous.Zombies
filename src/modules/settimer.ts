@@ -2,112 +2,45 @@
 import moment from 'moment';
 import { Timer } from 'moment-timer';
 
-interface TimerConfig {
-  containerId: string;
-  controlButtonId: string;
-}
 
-let timer: Timer | null;
-let duration: moment.Duration | null;
-
-function createTimerContainer(): HTMLDivElement {
-  const timerContainer = document.createElement('div');
-  timerContainer.id = 'timer-container';
-
+//skapa en timer i TS som man kan styra
+function createTimerElements(): void {
+  // Create minutes element
   const minutesElement = document.createElement('div');
   minutesElement.id = 'minutes';
   minutesElement.textContent = '00';
 
+  // Create separator element
   const separatorElement = document.createElement('div');
   separatorElement.textContent = ':';
 
+  // Create seconds element
   const secondsElement = document.createElement('div');
   secondsElement.id = 'seconds';
   secondsElement.textContent = '00';
 
-  timerContainer.appendChild(minutesElement);
-  timerContainer.appendChild(separatorElement);
-  timerContainer.appendChild(secondsElement);
+  // Create increase button
+  const increaseButton = document.createElement('button');
+  increaseButton.textContent = '>';
+  increaseButton.addEventListener('click', () => {
+    minutesElement.textContent = String((parseInt(minutesElement.textContent!, 10) || 0) + 1).padStart(2, '0');
+  });
 
-  document.getElementById('timers-container')?.appendChild(timerContainer);
+  // Create decrease button
+  const decreaseButton = document.createElement('button');
+  decreaseButton.textContent = '<';
+  decreaseButton.addEventListener('click', () => {
+    minutesElement.textContent = String(Math.max((parseInt(minutesElement.textContent!, 10) || 0) - 1, 0)).padStart(2, '0');
+  });
 
-  return timerContainer;
+  // Append elements to the body or any other container element
+  const container = document.body; // You can replace this with the actual container element
+  container.appendChild(decreaseButton);
+  container.appendChild(minutesElement);
+  container.appendChild(separatorElement);
+  container.appendChild(secondsElement);
+  container.appendChild(increaseButton);
 }
 
-function toggleTimer() {
-  if (timer) {
-    stopTimer();
-  } else {
-    startTimer();
-  }
-}
+export default { createTimerElements };
 
-function startTimer() {
-  duration = moment.duration({ minutes: 0, seconds: 0 });
-  timer = setInterval(() => {
-    duration.add(1, 'second');
-    updateTimerDisplay();
-  }, 1000);
-}
-
-function stopTimer() {
-  if (timer) {
-    clearInterval(timer);
-    timer = null;
-  }
-}
-
-function updateTimerDisplay() {
-  const formattedMinutes = moment(duration?.asMilliseconds()).format('mm');
-  const formattedSeconds = moment(duration?.asMilliseconds()).format('ss');
-
-  const timerContainer = document.getElementById('timer-container');
-  const minutesElement = timerContainer?.querySelector('#minutes');
-  const secondsElement = timerContainer?.querySelector('#seconds');
-
-  if (minutesElement && secondsElement) {
-    minutesElement.textContent = formattedMinutes;
-    secondsElement.textContent = formattedSeconds;
-  }
-}
-
-function initializeTimer(config: TimerConfig) {
-  createTimerContainer();
-
-  const controlButton = document.createElement('button');
-  controlButton.id = config.controlButtonId;
-  controlButton.textContent = 'Start Timer';
-
-  document.getElementById('timers-container')?.appendChild(controlButton);
-
-  controlButton.addEventListener('click', toggleTimer);
-}
-
-export { initializeTimer };
-
-
-
-let unchangedTime = 10;
-export class exTime  {
-choosenTime :number = 10;
-
-
-}
-//event listener onclick leftbutton
-//event listener onclick rightbutton
-// When click on left choosenTime = unchangedTime - 1
-// When click on right choosenTime = unchangedTime + 1
-// while choosenTime 0< || > 60, keep adding/reducing min 
-    
-
-function setTimer(choosenTime: number){
-
-// if left button click
-
-// if right button click
-
-// if else 
-choosenTime = unchangedTime;
-}
-// 
- 
