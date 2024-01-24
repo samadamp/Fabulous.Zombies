@@ -3,13 +3,9 @@ import { Timer } from 'moment-timer';
 import moment from 'moment';
 
 function createTimerElements(): void {
-
-
   const minutesElement = document.createElement('div');
   minutesElement.id = 'minutes';
   minutesElement.textContent = '10';
-
-  
 
   const timer = document.createElement('div')
   timer.id = 'timer';
@@ -74,7 +70,7 @@ function createTimerElements(): void {
     let startTime: number;
 
     function updateTimer() {
-      const currentTime: number = new Date().getTime();
+      const currentTime: number = moment().valueOf();
       const elapsedTime: number = currentTime - startTime;
       const remainingTime: number = durationInSeconds * 1000 - elapsedTime;
 
@@ -91,7 +87,7 @@ function createTimerElements(): void {
       }
     }
 
-    startTime = new Date().getTime();
+    startTime = moment().valueOf();
     updateTimer();
   });
 
@@ -99,7 +95,7 @@ function createTimerElements(): void {
   container.id = 'app-container';
 
   const timersContainer = document.createElement('div');
-  timersContainer.id = 'timers-container';
+  timersContainer.id = 'settimers-container';
 
   const logoContainer = document.createElement('div');
   const logoImage = document.createElement('img')
@@ -135,6 +131,3 @@ function createTimerElements(): void {
 }
 
 export default { createTimerElements };
-
-
-
