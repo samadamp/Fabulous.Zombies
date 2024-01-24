@@ -24,6 +24,7 @@ body {
 #timeInput {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  justify-content: flex-start;
+  align-items: center;
   text-align: center;
 }
