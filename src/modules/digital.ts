@@ -1,6 +1,14 @@
 import moment from 'moment';
-import { exTime } from './settimer';
-let myContainer = document.getElementById('stopBtn') as HTMLInputElement; myContainer.value = "Abort Time";
+//import { exTime } from 'exTime';
+/*
+import dropdown from;
+import setTimer from;
+import paus from paus;
+*/
+
+// import timesUp  
+
+//let timer-container = document.getElementById('stopBtn') as HTMLInputElement; timer-container.value = "Abort Time";
 
 //ändra texten på knappen
 
@@ -18,16 +26,19 @@ function updateTimer() {
   }
 }
 // Grand Time = tiden från set time
-function startTimer() {
+function startTimer(exTime:number) {
   startTime = moment();
   updateTimer();
   setInterval(updateTimer, 1000);
 }
 
+// när tiden är ute- timesUp och start igen om 5 min klickas i
+
 function stopTimer() {
+  // gå tillbaks till setTimer
   clearInterval(0);
   startTime = null;
   updateTimer();
 }
-
+// abort timer - tbx till setTimer
 export default {updateTimer, startTimer, stopTimer}
