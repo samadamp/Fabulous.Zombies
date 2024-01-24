@@ -17,6 +17,8 @@ let startTime: moment.Moment | null = null;
 // event listener drop down button click overlay
 //event listener abort button 'click'
 
+//starta timern på 10 min om inte någon annan tid är inställd
+
 function updateTimer() {
   if (startTime) {
     const currentTime = moment();
