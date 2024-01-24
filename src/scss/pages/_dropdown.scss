@@ -1,5 +1,5 @@
  body {
-  background-color: #050505;
+  
 
   main {
     display: flex;
@@ -24,7 +24,7 @@
     &.show {
       display: flex;
     }
-    background-color: aqua;
+    background-color: rgb(130, 214, 148);
   
     // Här kan du lägga till andra specifika stilar för #analogTimer om det behövs
   }
