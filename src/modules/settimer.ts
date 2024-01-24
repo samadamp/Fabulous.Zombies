@@ -97,16 +97,10 @@ function createTimerElements(): void {
   const timersContainer = document.createElement('div');
   timersContainer.id = 'settimers-container';
 
-  const logoContainer = document.createElement('div');
-  const logoImage = document.createElement('img')
-  logoImage.src = 'src/images/navicon.svg';
-  logoImage.id = 'logoImage';
-  logoContainer.appendChild(logoImage);
-
   const appContainer = document.body; 
   appContainer.appendChild(container);
 
-  container.appendChild(logoContainer);
+ 
   container.appendChild(timersContainer);
 
   const checkboxesContainer = document.createElement('div');

@@ -4,8 +4,8 @@ nav {
   background-color: white;
   padding: 2rem;
 
-  ul {
-    display: flex;
+  .dropdown-menu {
+    display: none;
     flex-direction: column;
     gap: 2.5rem;
     li {
@@ -17,4 +17,8 @@ nav {
       }
     }
   }
+  .dropdown-menu.show {
+    display: flex;
+    /* Ytterligare styling när menyn är synlig... */
+}
 }

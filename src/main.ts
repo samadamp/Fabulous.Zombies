@@ -63,6 +63,12 @@ timerBtns.forEach((btn) => {
   });
 });
 
+document.querySelector('.logo-box')!.addEventListener('click', function() {
+  document.querySelector('.dropdown-menu')!.classList.toggle('show');
+});
+
+
+
 
 
 
