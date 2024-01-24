@@ -1,0 +1,30 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+}
+
+#timer-container {
+  width: 200px;
+  height: 300px;
+  border: 1px solid #000;
+  overflow: hidden;
+  position: relative;
+}
+
+#timer {
+  height: 0%;
+  background-color: #4b4848;
+  transition: height 1s linear; /* Adjust the duration here */
+}
+
+#timeInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}

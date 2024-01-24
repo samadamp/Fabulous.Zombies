@@ -1,6 +1,8 @@
 import "./scss/styles.scss";
 import moment from 'moment';
 import analogfunctions from "./modules/analog";
+import  VisualTimer  from './modules/visual';
+VisualTimer.initializeTimer();
 analogfunctions.startAnalogTimer();
 
 const handleTimerButtonClick = (timerStyle: string): void => {
@@ -67,6 +69,7 @@ if (startTimerBtn) {
     startTimerBtn.addEventListener('click', () => {
     });
 }
+
 
 
 
