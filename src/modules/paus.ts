@@ -1,8 +1,14 @@
 import moment from 'moment';
 
+// Variabel för att hålla koll på om pausen är avbruten
+let isBreakAborted: boolean = false;
+let timerInterval: NodeJS.Timeout | null = null; // Deklarera timerInterval utanför omfånget, den här kan man ta bort sen när funktionen för att byta timer är kopplad, tror jag :P
+
+// Funktion för att starta paus-timern
 function startPauseTimer(targetElementId: string, durationInMinutes: number): void {
   // Hitta det element där nedräkningen ska visas
-  const timerElement: HTMLParagraphElement | null = document.getElementById(targetElementId) as HTMLParagraphElement;
+  const timerElement = document.getElementById(targetElementId) as HTMLElement;
+  const abortButton = document.getElementById('abortBreakbutton') as HTMLButtonElement;
 
   // Kontrollera om elementet finns innan du fortsätter
   if (timerElement) {
@@ -14,31 +20,37 @@ function startPauseTimer(targetElementId: string, durationInMinutes: number): vo
       timerElement.textContent = moment(countdownTime.asMilliseconds()).format('m:ss');
     }
 
-    // Uppdatera funktionen för att minska nedräkningstiden varje sekund
+    // Eventlistener för Abort Break-knappen
+    if (abortButton) {
+      abortButton.addEventListener('click', () => {
+        isBreakAborted = true;
+        clearInterval(timerInterval!);
+        startNextTimer(); // Länka ihop med huvudklockan på något sätt
+      });
+    }
+
+    // Uppdatera nedräkningen och starta timern
+    updateCountdown();
+    timerInterval = setInterval(countdown, 1000);
+
+    // Funktion för att hantera nedräkning
     function countdown() {
       countdownTime.subtract(1, 'second');
       updateCountdown();
 
-      // // Om tidslut, gör något här kalla på nån annan funktion eller nåt
-      // if (countdownTime.asSeconds() <= 0) {
-      //   clearInterval(timerInterval);
-      //   alert('Tiden är ute!');
-      // }
+      // När tiden är slut ska den tillbaka till interval timer
+      if (countdownTime.asSeconds() <= 0 && !isBreakAborted) {
+        clearInterval(timerInterval!);
+        alert('Back');
+        startNextTimer();
+      }
     }
 
-    // Uppdatera DOM när sidan laddas
-    document.addEventListener('DOMContentLoaded', () => {
-      updateCountdown();
-
-      // Starta timer med intervall på 1 sekund direkt när sidan laddas
-      const timerInterval = setInterval(countdown, 1000);
-
-     
-    });
+    // Funktion för att starta nästa timer, Länka ihop med huvudklockan på något sätt?
+    function startNextTimer() {
+    
+    }
   }
 }
 
-// Exportera
-export default {startPauseTimer}
-
-
+export default { startPauseTimer };
