@@ -1,77 +1,102 @@
 // function setTimer
-import moment from 'moment';
 import { Timer } from 'moment-timer';
+import moment from 'moment';
 
-
-//skapa en timer i TS som man kan styra
 function createTimerElements(): void {
-  // Create minutes element
+
+
   const minutesElement = document.createElement('div');
   minutesElement.id = 'minutes';
   minutesElement.textContent = '10';
 
-  // Create separator element
+  
+
+  const timer = document.createElement('div')
+  timer.id = 'timer';
+  const timerContainer = document.createElement('div');
+  timerContainer.appendChild(timer);
+
   const separatorElement = document.createElement('div');
   separatorElement.textContent = ':';
 
-  // Create seconds element
   const secondsElement = document.createElement('div');
   secondsElement.id = 'seconds';
   secondsElement.textContent = '00';
 
-  // Create increase button
   const increaseButton = document.createElement('button');
   increaseButton.textContent = '>';
   increaseButton.addEventListener('click', () => {
     minutesElement.textContent = String((parseInt(minutesElement.textContent!, 10) || 0) + 1).padStart(2, '0');
   });
 
-  // Create decrease button
   const decreaseButton = document.createElement('button');
   decreaseButton.textContent = '<';
   decreaseButton.addEventListener('click', () => {
     minutesElement.textContent = String(Math.max((parseInt(minutesElement.textContent!, 10) || 0) - 1, 0)).padStart(2, '0');
   });
 
+  const intervalsCheckbox = document.createElement('input');
+  intervalsCheckbox.type = 'checkbox';
+  intervalsCheckbox.id = 'intervalsCheckbox';
+  intervalsCheckbox.name = 'intervalsCheckbox';
+  intervalsCheckbox.value = 'Intervals';
 
-   // Create checkbox element for intervals
-   const intervalsCheckbox = document.createElement('input');
-   intervalsCheckbox.type = 'checkbox';
-   intervalsCheckbox.id = 'intervalsCheckbox';
-   intervalsCheckbox.name = 'intervalsCheckbox';
-   intervalsCheckbox.value = 'Intervals';
- 
-   // Create label element for intervals
-   const intervalsLabel = document.createElement('label');
-   intervalsLabel.htmlFor = 'intervalsCheckbox';
-   intervalsLabel.textContent = 'Intervals';
+  const intervalsLabel = document.createElement('label');
+  intervalsLabel.htmlFor = 'intervalsCheckbox';
+  intervalsLabel.textContent = 'Intervals';
 
-
-
-
-   const anotherCheckbox = document.createElement('input');
+  const anotherCheckbox = document.createElement('input');
   anotherCheckbox.type = 'checkbox';
   anotherCheckbox.id = 'anotherCheckbox';
   anotherCheckbox.name = 'anotherCheckbox';
   anotherCheckbox.value = 'AnotherPurpose';
 
-  // Create label element for another purpose
   const anotherLabel = document.createElement('label');
   anotherLabel.htmlFor = 'anotherCheckbox';
   anotherLabel.textContent = '5 min break / interval';
 
-  //create start timer button
   const startButton = document.createElement('button')
   startButton.textContent = 'Start Timer'
   startButton.id = 'startButton'
   startButton.addEventListener('click', () => {
+    const chosenMinutes = parseInt(minutesElement.textContent!, 10) || 0;
+    const chosenSeconds = parseInt(secondsElement.textContent!, 10) || 0;
 
-  })
+    const durationInSeconds: number = chosenMinutes * 60 + chosenSeconds;
 
-  
+    const chosenTime = moment()
+      .minutes(chosenMinutes)
+      .seconds(chosenSeconds)
+      .format('mm:ss');
+
+    console.log(`Chosen time: ${chosenTime}`);
+
+    let startTime: number;
+
+    function updateTimer() {
+      const currentTime: number = new Date().getTime();
+      const elapsedTime: number = currentTime - startTime;
+      const remainingTime: number = durationInSeconds * 1000 - elapsedTime;
+
+      const remainingMinutes: number = Math.floor(remainingTime / (60 * 1000));
+      const remainingSeconds: number = Math.floor((remainingTime % (60 * 1000)) / 1000);
+
+      console.log(`Remaining Time: ${remainingMinutes}:${remainingSeconds}`);
+
+      const progress: number = (elapsedTime / (durationInSeconds * 1000)) * 100;
+      timer.style.height = progress + '%';
+
+      if (progress < 100) {
+        requestAnimationFrame(updateTimer);
+      }
+    }
+
+    startTime = new Date().getTime();
+    updateTimer();
+  });
+
   const container = document.createElement('div');
   container.id = 'app-container';
-  
 
   const timersContainer = document.createElement('div');
   timersContainer.id = 'timers-container';
@@ -82,16 +107,11 @@ function createTimerElements(): void {
   logoImage.id = 'logoImage';
   logoContainer.appendChild(logoImage);
 
-
-
-  
-
   const appContainer = document.body; 
   appContainer.appendChild(container);
 
   container.appendChild(logoContainer);
   container.appendChild(timersContainer);
-
 
   const checkboxesContainer = document.createElement('div');
   checkboxesContainer.id = 'checkboxes';
@@ -102,7 +122,6 @@ function createTimerElements(): void {
   checkboxesContainer.appendChild(anotherLabel);
 
   container.appendChild(checkboxesContainer);
-
 
   container.appendChild(startButton);
 
@@ -116,4 +135,6 @@ function createTimerElements(): void {
 }
 
 export default { createTimerElements };
+
+
 
