@@ -7,8 +7,8 @@ body{
     
 
     main {
-        width: 20rem;
-        height: 20rem;
+        width: 14rem;
+        height: 14rem;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -16,18 +16,18 @@ body{
         align-items: center;
         color: #FFFFFF;
         font-weight: 700;
-        font-size: large;
+        /* font-size: large; */
         border-radius: 50%;
         box-shadow:
         0 0 10px 5px #fff,
         0 0 20px 10px #00f,
         0 0 30px 15px #0f0,
         0 0 40px 20px #f00;
-        gap: 2rem;
+        gap: 1rem;
         
 
         .img {
-            height: 30vh;
+             height: 30vh;
         }
         
         .timerButton {
