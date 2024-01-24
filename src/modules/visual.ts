@@ -12,6 +12,8 @@ let stopButton: HTMLButtonElement | null;
 let initialized: boolean = false;
 
 function createTimerElements(): void {
+
+  const visualTimer = document.getElementById('visual-container')
   // Create the timer container if it doesn't exist
   if (!timerContainer) {
     timerContainer = document.createElement('div');
@@ -58,9 +60,9 @@ function createTimerElements(): void {
     timeInputContainer.appendChild(stopButton);
 
     // Append timerContainer to the body
-  document.body.appendChild(timerContainer as HTMLElement);
+    visualTimer!.appendChild(timerContainer as HTMLElement);
     // Append timeInputContainer to the body
-    document.body.appendChild(timeInputContainer);
+    visualTimer!.appendChild(timeInputContainer);
 
     initialized = true;
   }
