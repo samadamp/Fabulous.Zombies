@@ -1,34 +1,8 @@
 @import "/src/scss/base/reset";
 @import "./components/dropdown";
 @import "./components/header";
-
-
-
-body{
-    background-color: #050505;
-
-    main {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        
-
-    
-    
-    .main-wrapper {
-        height: 30vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .img {
-            height: 30vh;
-        }
-
-
-    }
-}
-}
-
+@import "./pages/analog";
+@import "./pages/dropdown";
+@import "./pages/digital";
 
 

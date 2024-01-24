@@ -1,0 +1,43 @@
+ body {
+  background-color: #050505;
+
+  main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .main-wrapper {
+      height: 30vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .img {
+        height: 30vh;
+      }
+    }
+  }
+
+  #analogTimer {
+     display: none;
+  
+    &.show {
+      display: flex;
+    }
+    background-color: aqua;
+  
+    // Här kan du lägga till andra specifika stilar för #analogTimer om det behövs
+  }
+  
+  #digitalTimer {
+    display: none;
+ 
+   &.show {
+     display: flex;
+   }
+   background-color: rgb(187, 0, 255);
+ 
+   // Här kan du lägga till andra specifika stilar för #analogTimer om det behövs
+ }
+}
+

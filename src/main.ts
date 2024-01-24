@@ -1,58 +1,48 @@
 import "./scss/styles.scss";
 import moment from 'moment';
-import analogfunctions from "./modules/analog";
 
-analogfunctions.myfunction();
-analogfunctions.newFunction();
+const handleTimerButtonClick = (timerStyle: string): void => {
+  // Dölj alla timers
+  document.querySelectorAll('.timer-content').forEach((timer) => {
+    (timer as HTMLElement).style.display = 'none';
+  });
 
+  // Visa den valda timern baserat på timerStyle
+  switch (timerStyle) {
+    case 'analogTimer':
+      const analogTimer = document.getElementById('analogTimer');
+      if (analogTimer) {
+        analogTimer.style.display = 'flex';
+      }
+      break;
+    case 'digitalTimer':
+      const digitalTimer = document.getElementById('digitalTimer');
+      if (digitalTimer) {
+        digitalTimer.style.display = 'flex';
+      }
+      break;
+    case 'visualTimer':
+      const visualTimer = document.getElementById('visualTimer');
+      if (visualTimer) {
+        visualTimer.style.display = 'flex';
+      }
+      break;
+    // Lägg till andra cases för ytterligare timers om det behövs
+    default:
+      break;
+  }
+};
 
-const now = moment();
-console.log(now.format('YYYY-MM-DD HH:mm:ss'));
+const timerBtns = document.querySelectorAll('nav a');
 
-// Funktion för att starta en timer
-function startTimer(durationInMinutes: number) {
-    const startTime = moment();
-    const endTime = moment().add(durationInMinutes, 'minutes');
+timerBtns.forEach((btn) => {
+  btn.addEventListener('click', (event) => {
+    event.preventDefault();
+    const timerStyle = btn.getAttribute('href');
 
-    // Uppdatera varje sekund
-    const timerInterval = setInterval(() => {
-        const currentTime = moment();
-        const remainingTime = moment.duration(endTime.diff(currentTime));
-
-        // Visa återstående tid
-        console.log(`Återstående tid: ${remainingTime.minutes()} minuter och ${remainingTime.seconds()} sekunder`);
-
-        // Om tiden har gått ut, avsluta timern
-        if (currentTime.isAfter(endTime)) {
-            clearInterval(timerInterval);
-            console.log('Timer avslutad!');
-        }
-    }, 1000); // Uppdatera varje sekund
-}
-
-// Exempel: Starta en timer på 5 minuter
-startTimer(5);
-
-const app = document.querySelector<HTMLDivElement>("#app")!;
-
-interface Todo {
-  id: number;
-  label: string;
-  description?: string;
-  done: boolean;
-}
-
-const todos: Todo[] = [
-  { id: 0, label: "buy groceries", done: true },
-  { id: 1, label: "buy eggs", done: false },
-  { id: 2, label: "sleep", done: true },
-];
-
-todos.forEach((todo) => {
-  const div = document.createElement("div");
-  div.innerHTML = `label: ${todo.label} - done: ${todo.done}`;
-  app.append(div);
+    if (timerStyle) {
+      const trimmedTimerStyle = timerStyle.substring(1);
+      handleTimerButtonClick(trimmedTimerStyle);
+    }
+  });
 });
-
-
-
