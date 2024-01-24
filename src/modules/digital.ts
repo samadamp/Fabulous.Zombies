@@ -1,4 +1,9 @@
 import moment from 'moment';
+import  chosenTime from './settimer';
+
+chosenTime.createTimerElements();
+
+
 //import { exTime } from 'exTime';
 /*
 import dropdown from;
@@ -28,7 +33,8 @@ function updateTimer() {
   }
 }
 // Grand Time = tiden från set time
-function startTimer(exTime:number) {
+function startTimer() {
+  chosenTime.createTimerElements
   startTime = moment();
   updateTimer();
   setInterval(updateTimer, 1000);
@@ -42,5 +48,13 @@ function stopTimer() {
   startTime = null;
   updateTimer();
 }
+
+if (chosenTime.asSeconds() <= 0 && !isBreakAborted) {
+    clearInterval(timerInterval!);
+    alert('Back to huvudklockan');
+    startNextTimer();
+  }
+}
 // abort timer - tbx till setTimer
 export default {updateTimer, startTimer, stopTimer}
+
