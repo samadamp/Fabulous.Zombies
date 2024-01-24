@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,6 +9,24 @@
     
   </head>
   <body>
+    <div class="timer-section">
+      <label for="timerSelect">Choose Timer Interval:</label>
+      <select id="timerSelect">
+        <option value="5">5 minutes</option>
+        <option value="10">10 minutes</option>
+        <option value="15">15 minutes</option>
+        <option value="20">20 minutes</option>
+        <option value="25">25 minutes</option>
+      </select>
+      <button id="startTimerBtn">Start Timer</button>
+      <button id="stopTimerBtn" style="display: none">Stop Timer</button>
+    </div>
+
+    <div class="clock">
+      <img src="/src/images/clock.svg" alt="" />
+      <div class="min-pointer"></div>
+      <div class="sec-pointer"></div>
+    </div>
     <!-- Change timer dropdown -->
     <header>
       <div class="logo-box">
