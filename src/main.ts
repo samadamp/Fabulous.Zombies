@@ -3,6 +3,8 @@ import moment from 'moment';
 import analogfunctions from "./modules/analog";
 import  VisualTimer  from './modules/visual';
 import pausTimer from './modules/paus.ts';
+import timerModule from './modules/settimer';
+timerModule.createTimerElements();
 pausTimer.startPauseTimer("breakCountdown",5);
 VisualTimer.initializeTimer();
 analogfunctions.startAnalogTimer();
@@ -60,6 +62,13 @@ timerBtns.forEach((btn) => {
     }
   });
 });
+
+
+
+
+
+
+
 
 
 
