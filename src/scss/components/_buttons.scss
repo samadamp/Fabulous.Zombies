@@ -1,6 +1,18 @@
 .return-button{
 position: relative;
 top: 9rem;
-right: 6rem;
-    font-size: 20px;
+right: 7rem;
+background-color: #000000;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0rem;
+    min-height: 50px;
+    width: 10%;
+    outline: none;
+    padding: 0rem;
 }

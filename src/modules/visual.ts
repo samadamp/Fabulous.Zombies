@@ -46,7 +46,7 @@ function createTimerElements(): void {
     // Create the stop button
     stopButton = document.createElement('button');
     stopButton.textContent = 'Stop Timer';
-    stopButton.id = 'stopButton';
+    stopButton.id = 'stopButtonVisual';
 
     // Create labels if needed
     const durationLabel = document.createElement('label');
