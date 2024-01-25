@@ -1,72 +1,46 @@
 import moment from 'moment';
-import  chosenTime from './settimer';
-let timesUP:boolean;
-let extraTime: boolean;
-chosenTime.createTimerElements();
 
+// Funktion för att starta digital timer
+function startDigitalTimer(targetElementId: string, durationInMinutes: number): void {
+  // Hitta det element där nedräkningen ska visas
+  const timerElement = document.getElementById(targetElementId) as HTMLElement;
 
-//import { exTime } from 'exTime';
-/*
-import dropdown from;
-import setTimer from;
-import paus from paus;
-*/
+  // Ange starttiden till angivet antal minuter
+  let countdownTime: moment.Duration = moment.duration(durationInMinutes, 'minutes');
 
-// import timesUp  
+  // Uppdatera funktionen för att visa den återstående tiden
+  function updateCountdown() {
+    timerElement.textContent = moment(countdownTime.asMilliseconds()).format('m:ss');
+  }
 
-//let timer-container = document.getElementById('stopBtn') as HTMLInputElement; timer-container.value = "Abort Time";
+  // Uppdatera nedräkningen och starta timern
+  updateCountdown();
+  const timerInterval = setInterval(countdown, 1000);
 
-//ändra texten på knappen
+  // Funktion för att hantera nedräkning
+  function countdown() {
+    countdownTime.subtract(1, 'second');
+    updateCountdown();
 
-//document.getElementById(startBtn)?.innerText = "abort time";
-let startTime: moment.Moment | null = null;
-// event listener drop down button click overlay
-//event listener abort button 'click'
+    // När tiden är slut ska den tillbaka till interval timer
+    if (countdownTime.asSeconds() <= 0) {
+      clearInterval(timerInterval);
+      alert('Back to huvudklockan');
+      startNextTimer();
+    }
+  }
 
-//starta timern på 10 min om inte någon annan tid är inställd
-
-function updateTimer() {
-  if (startTime) {
-    const currentTime = moment();
-    const duration = moment.duration(currentTime.diff(startTime));
-    const formattedTime = moment.utc(duration.asMilliseconds()).format('mm:ss');
-    document.getElementById('timer')!.innerText = formattedTime;
+  // Funktion för att starta nästa timer, Länka ihop med huvudklockan på något sätt?
+  function startNextTimer() {
+    // Implementera här logiken för att starta nästa timer
   }
 }
-// Grand Time = tiden från set time
-function startTimer() {
-  chosenTime.createTimerElements
-  startTime = moment();
-  updateTimer();
-  setInterval(updateTimer, 1000);
-}
 
-// när tiden är ute- timesUp och start igen om 5 min klickas i
-
-function stopTimer() {
-  // gå tillbaks till setTimer
-  if (timesUP == true && extraTime == false ) {
-
-
-  }
-else if (timesUP == true && extraTime == true) {
-
-
-}
+export default { startDigitalTimer };
 
 
 
-  clearInterval(0);
-  startTime = null;
-  updateTimer();
-}
 
-if (chosenTime.asSeconds() <= 0 && !) {
-    clearInterval(timerInterval!);
-    alert('Back to huvudklockan');
-    ();
-  }
-}
-// abort timer - tbx till setTimer
-export default {updateTimer, startTimer, stopTimer}
+
+
 
