@@ -13,6 +13,7 @@ let initialized: boolean = false;
 let pauseButton: HTMLButtonElement | null;
 let abortButton: HTMLButtonElement | null;
 
+
 let isPaused: boolean = false;
 let pausedTime: moment.Moment | null = null;
 
@@ -43,26 +44,26 @@ function createTimerElements(): void {
     durationInput.step = '1';
     durationInput.value = '5';
 
-    // Create the start button
-    startButton = document.createElement('button');
-    startButton.textContent = 'Start Timer';
-    startButton.id = 'startButtonVisual';
+    
+    
+   
 
-    // Create the stop button
-    stopButton = document.createElement('button');
-    stopButton.textContent = 'Stop Timer';
-    stopButton.id = 'stopButtonVisual';
 
     // Create labels if needed
     const durationLabel = document.createElement('label');
     durationLabel.textContent = 'Enter time in minutes:';
     durationLabel.setAttribute('for', 'duration');
 
+    
+    
+    let buttonContainer = document.getElementById('button-container') as HTMLElement;
     // Append input and buttons to the timeInput container
+    
     timeInputContainer.appendChild(durationLabel);
     timeInputContainer.appendChild(durationInput);
-    timeInputContainer.appendChild(startButton);
-    timeInputContainer.appendChild(stopButton);
+    timeInputContainer.appendChild(buttonContainer);
+    //append buttons to buttonContainer
+   
 
     // Append timerContainer to the body
     visualTimer!.appendChild(timerContainer as HTMLElement);
@@ -77,11 +78,13 @@ function initializeTimer(): void {
   createTimerElements();
 
   
-
+  let startButton = document.getElementById('startButtonVisual')
   if (startButton) {
     startButton.addEventListener('click', startTimer);
+    console.log("hej");
+    
   }
-
+  let stopButton = document.getElementById('stopButtonVisual')
   if (stopButton) {
     stopButton.addEventListener('click', stopTimer);
    
