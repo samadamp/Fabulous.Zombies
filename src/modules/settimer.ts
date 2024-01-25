@@ -79,8 +79,8 @@ function createTimerElements(): void {
       const remainingMinutes: number = remaningDuration.minutes();
       const remainingSeconds: number = remaningDuration.seconds();
 
-      const chosenVisualTime = remainingMinutes + ":" +remainingSeconds
-      console.log(chosenVisualTime);
+      const globalTime = remainingMinutes + ":" +remainingSeconds
+      console.log(globalTime);
       
 
       /* console.log(`Remaining Time: ${remainingMinutes}:${remainingSeconds}`); */
