@@ -5,18 +5,52 @@
   }
 // behåll denna body , vi styr all body scss här
 body{
-    background-color: rgb(51, 207, 56);
+    background-color: rgb(224, 180, 180);
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    width: 800px;
-    margin: auto;
     border: 1px solid black;
     
     
 }
+
+main{
+    
+    height: 100vh;
+    width: 800px;
+    border: 2px solid black;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    
+}
+.logo{
+    width: 3rem;
+    height: auto;
+    
+    
+}
+.poster{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  
+}
+
+/* .image-container {
+    width: 800px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // Set height or leave as is, depending on your layout needs
+  } */
 
 #app-container{
     width: 16rem;

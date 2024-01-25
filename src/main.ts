@@ -70,23 +70,61 @@ timerBtns.forEach((btn) => {
 });
 
 
-const logo = document.querySelector('.logo-box img') as HTMLElement;
+const logo = document.querySelector('.logo-box') as HTMLElement;
 const nav = document.querySelector('nav') as HTMLElement;
+const poster = document.querySelector('.poster') as HTMLElement;
+const logoImg = document.querySelector('.logo') as HTMLElement;
+
+
+if(poster){
+  poster.addEventListener("click", ()=>{
+    nav.classList.toggle('show');
+    poster.style.display = "none"
+    /* poster.style.height = "1px */
+    logo.style.visibility = "visible"
+   
+    
+    
+  })
+}
+
+
 
 if (logo && nav) {
   // Add click event listener to the logo
   logo.addEventListener('click', () => {
     // Toggle the 'show' class on the nav element
     nav.classList.toggle('show');
+   
+    
+    
+    
+    
   });
 
   // Add click event listener to each menu item
   const menuItems = nav.querySelectorAll('a');
   menuItems.forEach(item => {
     item.addEventListener('click', () => {
+      
+      
+      
       // Hide the nav by removing the 'show' class after selecting an item
       nav.classList.remove('show');
+      
     });
+  });
+}
+
+
+let returnButton: HTMLElement | null = document.querySelector(".return-button");
+
+// Check if the button element exists before adding an event listener
+if (returnButton) {
+  // Add a click event listener to the button
+  returnButton.addEventListener("click", function() {
+   
+    location.reload();
   });
 }
 
