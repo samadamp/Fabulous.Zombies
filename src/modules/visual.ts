@@ -79,6 +79,7 @@ function initializeTimer(): void {
 
   if (stopButton) {
     stopButton.addEventListener('click', stopTimer);
+   
   }
 }
 
@@ -105,6 +106,8 @@ function startTimer(): void {
 
       if (progress < 100) {
         timerInterval = requestAnimationFrame(updateTimer);
+      }else {
+        stopTimer();
       }
     }
   }
@@ -115,6 +118,12 @@ function startTimer(): void {
 
 function stopTimer(): void {
   cancelAnimationFrame(timerInterval);
+
+  const hideVisual = document.querySelector('#visualTimer') as HTMLElement;
+  hideVisual.style.display = "none"
+
+    const alarmWrapper = document.querySelector(".alarm-wrapper") as HTMLElement;
+    alarmWrapper.style.display = "flex";
 
   // Reset the timer without removing elements
   if (timer) {

@@ -73,6 +73,8 @@ timerBtns.forEach((btn) => {
 const logo = document.querySelector('.logo-box') as HTMLElement;
 const nav = document.querySelector('nav') as HTMLElement;
 const poster = document.querySelector('.poster') as HTMLElement;
+const timesUpWrapper: HTMLButtonElement | null = document.querySelector('.alarm-wrapper') as HTMLButtonElement;
+
 
 
 
@@ -91,13 +93,15 @@ if (logo && nav) {
   logo.addEventListener('click', () => {
     // Toggle the 'show' class on the nav element
     nav.classList.toggle('show');
+    timesUpWrapper.style.display = "none"
+
    
   });
 
   const menuItems = nav.querySelectorAll('a');
   menuItems.forEach(item => {
     item.addEventListener('click', () => {
-    
+      timesUpWrapper.style.display = "none"
       nav.classList.remove('show');
       
     });
@@ -122,6 +126,17 @@ if (startTimerBtn) {
     startTimerBtn.addEventListener('click', () => {
     });
 }
+
+
+
+
+//när tiden är slut skall allting döljas och timesup komma upp på skärmen
+
+
+
+
+
+//function för att komma tillbaka till huvudmenyn för times up knappen
 
 
 

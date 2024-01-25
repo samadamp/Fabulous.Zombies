@@ -36,6 +36,12 @@ function startAnalogTimer() {
       clearInterval(timerInterval as number);
       stopTimerBtn!.style.display = 'none';
       startTimerBtn!.style.display = 'inline-block';
+
+      const hideClock = document.querySelector('.timer-content') as HTMLElement;
+    hideClock.style.display = "none"
+
+    const alarmWrapper = document.querySelector(".alarm-wrapper") as HTMLElement;
+    alarmWrapper.style.display = "flex";
     }
   }
   
@@ -62,11 +68,20 @@ function startAnalogTimer() {
     clearInterval(timerInterval as number);
     stopTimerBtn!.style.display = 'none';
     startTimerBtn!.style.display = 'inline-block';
-  }
 
+    const hideClock = document.querySelector('.timer-content') as HTMLElement;
+    hideClock.style.display = "none"
+
+    const alarmWrapper = document.querySelector(".alarm-wrapper") as HTMLElement;
+    alarmWrapper.style.display = "flex";
+
+
+  }
+  
   if (startTimerBtn && stopTimerBtn) {
     startTimerBtn.addEventListener('click', setTimer);
     stopTimerBtn.addEventListener('click', stopTimer);
+    
   } else {
     console.error('Start or stop button not found.');
   }
