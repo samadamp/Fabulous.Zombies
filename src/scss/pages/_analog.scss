@@ -1,5 +1,8 @@
 .timer-content {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    
   
     // Additional styles for hidden timers can be added here
   }
@@ -11,6 +14,9 @@
     .timer-section {
       margin-bottom: 20px;
       text-align: center;
+      
+
+    
       
       
   
