@@ -1,13 +1,17 @@
 
 
 .digitalContainer{
+display: flex;
+flex-direction: column;
 background-color: rgb(237, 13, 13);
-align-items: center;
+align-items:center;
+
 }
 
 #abortTimer{
 
-    justify-content:baseline;
+    justify-content:end;
+    align-items: end;
     
 }
 

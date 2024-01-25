@@ -25,17 +25,23 @@ function startDigitalTimer(targetElementId: string, durationInMinutes: number): 
     // När tiden är slut ska den tillbaka till interval timer
     if (countdownTime.asSeconds() <= 0) {
       clearInterval(timerInterval);
-      alert('Back to huvudklockan');
-      startNextTimer();
+     // timesUp style display flex
+      countdown();
     }
   }
-
-  // Funktion för att starta nästa timer, Länka ihop med huvudklockan på något sätt?
-  function startNextTimer() {
-    // Implementera här logiken för att starta nästa timer
-  }
+  
 }
+//
+/*
+function startNextTimer() {
+updateCountdown();
 
+}
+function stopTimer(){
+startNextTimer();
+
+}
+*/
 export default { startDigitalTimer };
 
 
