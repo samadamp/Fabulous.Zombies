@@ -105,8 +105,11 @@ function createTimerElements(): void {
   const timersContainer = document.createElement('div');
   timersContainer.id = 'settimers-container';
 
-  const appContainer = document.body; 
+  const appContainer = document.createElement("div"); 
   appContainer.appendChild(container);
+
+  const setTimer: HTMLDivElement | any = document.getElementById("setTimer");
+  setTimer.append(appContainer)
 
  
   container.appendChild(timersContainer);

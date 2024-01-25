@@ -43,6 +43,12 @@ if (startTimerBtn) {
         visualTimer.style.display = 'flex';
       }
       break;
+      case 'setTimer':
+      const setTimer = document.getElementById('setTimer');
+      if (setTimer) {
+        setTimer.style.display = 'flex';
+      }
+      break;
     // Lägg till andra cases för ytterligare timers om det behövs
     default:
       break;
