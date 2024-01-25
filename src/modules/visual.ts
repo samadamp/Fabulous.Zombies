@@ -10,6 +10,11 @@ let durationInput: HTMLInputElement | null;
 let startButton: HTMLButtonElement | null;
 let stopButton: HTMLButtonElement | null;
 let initialized: boolean = false;
+let pauseButton: HTMLButtonElement | null;
+let abortButton: HTMLButtonElement | null;
+
+let isPaused: boolean = false;
+let pausedTime: moment.Moment | null = null;
 
 function createTimerElements(): void {
 
@@ -81,6 +86,15 @@ function initializeTimer(): void {
     stopButton.addEventListener('click', stopTimer);
    
   }
+  pauseButton = document.getElementById('pauseVisual') as HTMLButtonElement;
+  if (pauseButton) {
+    pauseButton.addEventListener('click', pauseTimer);
+  }
+}
+
+abortButton = document.getElementById('abortBreakbutton') as HTMLButtonElement;
+if (abortButton) {
+  abortButton.addEventListener('click', resumeTimer);
 }
 
 function startTimer(): void {
@@ -95,6 +109,18 @@ function startTimer(): void {
 
   let startTime: moment.Moment;
 
+  if (isPaused && pausedTime) {
+    // If resuming from pause, adjust the start time
+    const pausedDuration = moment().diff(pausedTime, 'milliseconds');
+    startTime = moment().subtract(pausedDuration, 'milliseconds');
+  } else {
+    startTime = moment();
+  }
+
+
+
+
+
   function updateTimer(): void {
     const currentTime: moment.Moment = moment();
     const elapsedTime: number = currentTime.diff(startTime, 'milliseconds');
@@ -107,8 +133,8 @@ function startTimer(): void {
       if (progress < 100) {
         timerInterval = requestAnimationFrame(updateTimer);
       }else {
-        stopTimer();
-      }
+      stopTimer();
+    }
     }
   }
 
@@ -131,22 +157,60 @@ function stopTimer(): void {
   }
 
   initialized = false;
+  isPaused = false;
+  pausedTime = null;
+}
+
+
+function pauseTimer(): void {
+  cancelAnimationFrame(timerInterval);
+  const hideVisual = document.querySelector('#visualTimer') as HTMLElement;
+  hideVisual.style.display = "none"
+
+  const showPaus = document.querySelector(".pauseContainer") as HTMLElement;
+  showPaus.style.display = "flex"
+
+
+  if (pauseButton) {
+   
+    
+  }
+
+  isPaused = true;
+  pausedTime = moment();
+}
+
+function resumeTimer(): void {
+  const hideVisual = document.querySelector('#visualTimer') as HTMLElement;
+  hideVisual.style.display = "flex"
+  const hidePaus = document.querySelector(".pauseContainer") as HTMLElement;
+  hidePaus.style.display = "none"
+  if (isPaused && pausedTime) {
+    const durationInMinutes = parseInt(durationInput?.value || '5', 10);
+    const elapsedTimeInSeconds = moment().diff(pausedTime, 'seconds');
+    const remainingTimeInSeconds = durationInMinutes * 60 - elapsedTimeInSeconds;
+
+    if (remainingTimeInSeconds > 0) {
+      // Set the durationInput value to the remaining time
+      if (durationInput) {
+        durationInput.value = Math.ceil(remainingTimeInSeconds / 60).toString();
+      }
+
+      isPaused = false;
+      startTimer(); // Resume by starting the timer again
+    } else {
+      // If the remaining time is negative or zero, treat it as if the timer has ended
+      stopTimer();
+    }
+  } else {
+    // If not paused, just start the timer as usual
+    startTimer();
+  }
 }
 
 export default {
   initializeTimer,
 };
-
-
-
-
-
-
-
-
-
-
-
 
 
 

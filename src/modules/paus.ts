@@ -25,7 +25,7 @@ function startPauseTimer(targetElementId: string, durationInMinutes: number): vo
       abortButton.addEventListener('click', () => {
         isBreakAborted = true;
         clearInterval(timerInterval!);
-        alert('Break aborted');
+        
         startNextTimer(); // Länka ihop med huvudklockan på något sätt
       });
     }
@@ -42,7 +42,7 @@ function startPauseTimer(targetElementId: string, durationInMinutes: number): vo
       // När tiden är slut ska den tillbaka till interval timer
       if (countdownTime.asSeconds() <= 0 && !isBreakAborted) {
         clearInterval(timerInterval!);
-        alert('Back to huvudklockan');
+        
         startNextTimer();
       }
     }
