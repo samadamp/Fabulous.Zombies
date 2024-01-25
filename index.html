@@ -5,14 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>INTERVAL</title>
-    
   </head>
   <body>
     <!-- Change timer dropdown -->
     <header>
       <div class="logo-box">
         <img src="./src/images/navicon.svg" alt="icon" class="logo" />
-    
       </div>
     </header>
     <nav>
@@ -38,7 +36,7 @@
         <button id="startTimerBtn">Start Timer</button>
         <button id="stopTimerBtn" style="display: none">Stop Timer</button>
       </div>
-  
+
       <div class="clock">
         <img src="/src/images/clock.svg" alt="" />
         <div class="min-pointer"></div>
@@ -56,8 +54,8 @@
       <!-- html elementen som ligger i analog branchen -->
     </div>
     <!-- Paus container -->
-    <div class="pauseContainer">
-      <img src="./src/images/pause.svg" alt="pause">
+    <div class="pauseContainer" style="display: none" ;>
+      <img src="./src/images/pause.svg" alt="pause" />
       <h1>Pause & breath</h1>
       <p id="breakCountdown">5:00</p>
       <button id="abortBreakbutton">NO PAUSE, GO NOW!</button>
@@ -66,8 +64,6 @@
 
     <div id="settimers-container"></div>
 
-    
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
-
