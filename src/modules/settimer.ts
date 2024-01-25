@@ -65,7 +65,7 @@ function createTimerElements(): void {
       .seconds(chosenSeconds)
       .format('mm:ss');
 
-    /* console.log(`Chosen time: ${chosenTime}`); */
+    console.log(`Chosen time: ${chosenTime}`);
 
     let startTime: number;
 
@@ -79,8 +79,8 @@ function createTimerElements(): void {
       const remainingMinutes: number = remaningDuration.minutes();
       const remainingSeconds: number = remaningDuration.seconds();
 
-      const chosenTime = remainingMinutes + ":" +remainingSeconds
-      console.log(chosenTime);
+      const chosenVisualTime = remainingMinutes + ":" +remainingSeconds
+      console.log(chosenVisualTime);
       
 
       /* console.log(`Remaining Time: ${remainingMinutes}:${remainingSeconds}`); */
