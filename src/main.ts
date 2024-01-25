@@ -69,9 +69,29 @@ timerBtns.forEach((btn) => {
   });
 });
 
-document.querySelector('.logo-box')!.addEventListener('click', function() {
-  document.querySelector('.dropdown-menu')!.classList.toggle('show');
-});
+
+const logo = document.querySelector('.logo-box img') as HTMLElement;
+const nav = document.querySelector('nav') as HTMLElement;
+
+if (logo && nav) {
+  // Add click event listener to the logo
+  logo.addEventListener('click', () => {
+    // Toggle the 'show' class on the nav element
+    nav.classList.toggle('show');
+  });
+
+  // Add click event listener to each menu item
+  const menuItems = nav.querySelectorAll('a');
+  menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Hide the nav by removing the 'show' class after selecting an item
+      nav.classList.remove('show');
+    });
+  });
+}
+
+
+
 
 
 

@@ -17,7 +17,13 @@
       }
     }
   }
+  nav{
+    display: none;
   
+    &.show {
+      display: flex;
+    }
+  }
 
   #analogTimer {
      display: none;

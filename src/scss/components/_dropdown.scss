@@ -5,7 +5,8 @@ nav {
   padding: 2rem;
 
   .dropdown-menu {
-    display: none;
+    
+    display: flex;
     flex-direction: column;
     gap: 2.5rem;
     li {
