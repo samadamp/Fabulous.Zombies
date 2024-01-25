@@ -83,12 +83,8 @@ if(poster){
     /* poster.style.height = "1px */
     logo.style.visibility = "visible"
    
-    
-    
   })
 }
-
-
 
 if (logo && nav) {
   // Add click event listener to the logo
@@ -96,20 +92,12 @@ if (logo && nav) {
     // Toggle the 'show' class on the nav element
     nav.classList.toggle('show');
    
-    
-    
-    
-    
   });
 
-  // Add click event listener to each menu item
   const menuItems = nav.querySelectorAll('a');
   menuItems.forEach(item => {
     item.addEventListener('click', () => {
-      
-      
-      
-      // Hide the nav by removing the 'show' class after selecting an item
+    
       nav.classList.remove('show');
       
     });
@@ -127,30 +115,6 @@ if (returnButton) {
     location.reload();
   });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const startTimerBtn: HTMLButtonElement | null = document.getElementById('startTimerBtn') as HTMLButtonElement;
 
