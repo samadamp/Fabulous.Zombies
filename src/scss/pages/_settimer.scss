@@ -1,58 +1,69 @@
 .timer-content {
     display: none;
-  
+
     // Additional styles for hidden timers can be added here
-  }
+}
+
 // behåll denna body , vi styr all body scss här
-body{
-    background-color: rgb(224, 180, 180);
+body {
+    background-color: #d7d7d7;
+    background-image: linear-gradient(147deg, #e0dada 0%, #302e2eda 74%);
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    border: 1px solid black;
-    
-    
+
+
+
+
 }
 
-main{
-    
+main {
+
     height: 100vh;
     width: 800px;
     border: 2px solid black;
     display: flex;
-    
+
     justify-content: center;
     align-items: center;
-    
+
 }
-.logo{
+
+.logo {
     width: 3rem;
     height: auto;
-    
-    
+
+
 }
-.poster{
+
+.poster {
     width: 100%;
     height: fit-content;
     display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  
-}
-
-/* .image-container {
-    width: 800px;
-    height: 100vh;
-    display: flex;
     justify-content: center;
     align-items: center;
-    // Set height or leave as is, depending on your layout needs
-  } */
+    cursor: pointer;
+    animation-name: movein;
+    animation-duration: 5s;
 
-#app-container{
+}
+
+@keyframes movein {
+    from {
+        opacity: 0;
+        transform: translateX(0%);
+    }
+    50% {
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0%)
+    }
+}
+
+#app-container {
     width: 16rem;
     height: 450px;
     padding: 1rem;
@@ -62,28 +73,29 @@ main{
     align-items: center;
     justify-content: flex-end;
 
-    #checkboxes{
+    #checkboxes {
         font-size: 20px;
     }
+
     #settimers-container {
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 4rem;
-    
-      button{
-        border: none;
-        border-radius: 10px;
-        background: none;
-        font-size: 4rem;
-        padding: 1rem;
-        cursor: pointer;
+
+        button {
+            border: none;
+            border-radius: 10px;
+            background: none;
+            font-size: 4rem;
+            padding: 1rem;
+            cursor: pointer;
+        }
     }
-    }
-    
+
 }
 
-#startButton{
+#startButton {
     background-color: rgb(176, 176, 245);
     margin-top: 20px;
     padding: 1rem;
