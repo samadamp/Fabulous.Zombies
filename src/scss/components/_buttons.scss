@@ -1,11 +1,9 @@
-.return-button{
-position: relative;
-top: 9rem;
-right: 7rem;
-background-color: #000000;
-    border: 2px solid #1A1A1A;
+// Define primary button style as a mixin
+@mixin primary-button {
+    background-color: #000000;
+    border: 2px solid #000000;
     border-radius: 15px;
-    color: #FFFFFF;
+    color: #ffffff;
     cursor: pointer;
     display: inline-block;
     font-weight: 600;
@@ -15,4 +13,24 @@ background-color: #000000;
     width: 10%;
     outline: none;
     padding: 0rem;
+  }
+  
+  // Apply primary button style to .return-button
+  .return-button {
+    @include primary-button;
+    position: relative;
+    top: 9rem;
+    right: 7rem;
+  }
+
+  #startButton {  
+   @include primary-button();
+   width: 50%;
+   margin: 3rem;
+   min-height: 60px;
+   
+    
 }
+
+
+  

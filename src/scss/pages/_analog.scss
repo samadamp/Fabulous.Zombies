@@ -1,29 +1,35 @@
 .timer-content {
     display: none;
-   
   
     // Additional styles for hidden timers can be added here
   }
   
   
   body {
+    
    
     .timer-section {
       margin-bottom: 20px;
       text-align: center;
+      
+      
   
       label {
         display: block;
         margin-bottom: 5px;
+        
+        
       }
   
       select, button {
         padding: 8px;
         margin: 5px;
+        
       }
     }
   
     .clock {
+      
       position: relative;
       width: 15rem;
       height: 15rem;

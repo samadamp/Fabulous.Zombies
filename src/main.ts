@@ -73,7 +73,7 @@ timerBtns.forEach((btn) => {
 const logo = document.querySelector('.logo-box') as HTMLElement;
 const nav = document.querySelector('nav') as HTMLElement;
 const poster = document.querySelector('.poster') as HTMLElement;
-const logoImg = document.querySelector('.logo') as HTMLElement;
+
 
 
 if(poster){
