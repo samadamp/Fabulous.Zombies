@@ -1,6 +1,7 @@
 import moment from 'moment';
 import  chosenTime from './settimer';
-
+let timesUP:boolean;
+let extraTime: boolean;
 chosenTime.createTimerElements();
 
 
@@ -44,15 +45,26 @@ function startTimer() {
 
 function stopTimer() {
   // gå tillbaks till setTimer
+  if (timesUP == true && extraTime == false ) {
+
+
+  }
+else if (timesUP == true && extraTime == true) {
+
+
+}
+
+
+
   clearInterval(0);
   startTime = null;
   updateTimer();
 }
 
-if (chosenTime.asSeconds() <= 0 && !isBreakAborted) {
+if (chosenTime.asSeconds() <= 0 && !) {
     clearInterval(timerInterval!);
     alert('Back to huvudklockan');
-    startNextTimer();
+    ();
   }
 }
 // abort timer - tbx till setTimer
