@@ -41,7 +41,7 @@ function createTimerElements(): void {
     // Create the start button
     startButton = document.createElement('button');
     startButton.textContent = 'Start Timer';
-    startButton.id = 'startButton';
+    startButton.id = 'startButtonVisual';
 
     // Create the stop button
     stopButton = document.createElement('button');

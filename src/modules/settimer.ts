@@ -65,7 +65,7 @@ function createTimerElements(): void {
       .seconds(chosenSeconds)
       .format('mm:ss');
 
-    console.log(`Chosen time: ${chosenTime}`);
+    /* console.log(`Chosen time: ${chosenTime}`); */
 
     let startTime: number;
 
@@ -74,10 +74,18 @@ function createTimerElements(): void {
       const elapsedTime: number = currentTime - startTime;
       const remainingTime: number = durationInSeconds * 1000 - elapsedTime;
 
-      const remainingMinutes: number = Math.floor(remainingTime / (60 * 1000));
-      const remainingSeconds: number = Math.floor((remainingTime % (60 * 1000)) / 1000);
+      const remaningDuration = moment.duration(remainingTime);
 
-      console.log(`Remaining Time: ${remainingMinutes}:${remainingSeconds}`);
+      const remainingMinutes: number = remaningDuration.minutes();
+      const remainingSeconds: number = remaningDuration.seconds();
+
+      const chosenTime = remainingMinutes + ":" +remainingSeconds
+      console.log(chosenTime);
+      
+
+      /* console.log(`Remaining Time: ${remainingMinutes}:${remainingSeconds}`); */
+      
+      
 
       const progress: number = (elapsedTime / (durationInSeconds * 1000)) * 100;
       timer.style.height = progress + '%';
