@@ -1,11 +1,22 @@
-.timer-content {
-    display: none;
+body {
+    // font-family: 'Arial', sans-serif;
+    // text-align: center;
+    // margin: 50px;
   
-    // Additional styles for hidden timers can be added here
+    #timer {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+  
+    #inputTime {
+      margin-bottom: 20px;
+    }
+  
+    #startButton,
+    #stopButton {
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  
   }
-  
-  
-  body {
-    // Här kan du lägga till andra stilar för body om det behövs
-  }
-  

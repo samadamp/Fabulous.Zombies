@@ -136,5 +136,7 @@ if (startTimerBtn) {
 
 
 
+import digitalTimer from './modules/digital.ts'
+digitalTimer.updateTimer();
 
 //function för att komma tillbaka till huvudmenyn för times up knappen
