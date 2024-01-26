@@ -137,9 +137,3 @@ if (startTimerBtn) {
 
 
 //function för att komma tillbaka till huvudmenyn för times up knappen
-
-
-
-
-
-

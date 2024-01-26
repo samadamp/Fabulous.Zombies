@@ -10,6 +10,7 @@ function startAnalogTimer() {
   const pauseTimerBtn: HTMLButtonElement | null = document.getElementById('pauseTimerBtn') as HTMLButtonElement;
   const pauseContainer = document.querySelector(".pauseContainer-2") as HTMLElement; // Get the pause container element
   const abortBreakButton: HTMLButtonElement | null = document.getElementById('abortBreakbutton-2') as HTMLButtonElement;
+  const hideAnalogContainer: HTMLElement | null = document.querySelector('.timer-content') as HTMLElement;
 
 
 
@@ -26,6 +27,7 @@ function startAnalogTimer() {
     if (!timerRunning && !isPaused) return;
 
     if (!isPaused) {
+      hideAnalogContainer.style.display = "none";
       // Pause the timer
       if (endTime) {
         remainingTimeAtPause = moment.duration(endTime.diff(moment())); // Store the remaining time
@@ -34,6 +36,7 @@ function startAnalogTimer() {
       isPaused = true;
       timerRunning = false; // Update the timerRunning state
       pauseContainer.style.display = "flex"; // Show the pause container
+      
     } else {
       // Resume the timer
       if (remainingTimeAtPause) {
@@ -42,12 +45,13 @@ function startAnalogTimer() {
       }
       isPaused = false;
       timerRunning = true; // Update the timerRunning state
-      pauseContainer.style.display = "none"; // Hide the pause container
+       // Hide the pause container
     }
   });
   
   abortBreakButton?.addEventListener('click', () => {
     if (isPaused) {
+      hideAnalogContainer.style.display = "flex";
       // Resume the timer
       if (remainingTimeAtPause) {
         endTime = moment().add(remainingTimeAtPause); // Reset the endTime using the remaining duration
