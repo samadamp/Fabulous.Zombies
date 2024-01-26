@@ -7,32 +7,39 @@ body{
         align-items: center;
         justify-content: center;
         height: 100vh;
-        background-color: #f5eeee;
-        font-size: xx-large;
+        background-color: black;
+      
         
 
 .digitalContainer{
+    border-radius: 5%;
     display: flex;
     border: red;
     gap: 3rem;
     flex-direction: column;
-    background-color: rgb(0, 0, 0);
+    background-color:whitesmoke;
     align-items: center;
     border: rgb(211, 32, 32);
     border-width: 15;
-    color: #f5eeee;
+    color: black;
     height: 30vh;
     width: 30vh;
-
+    font-weight: 1000;
+    font-size: xx-large;
+    font-family: Arial, sans-serif;
     }
 
 }
-.buttons{
-    flex-wrap: wrap;
+.digibuttons{
+
+    border-radius: 5;
+    
+    flex-wrap:wrap;
     #starttimer{
         background-color: aqua;
     }
-}    
+  
     #abortTimer{
     
     }
+}
