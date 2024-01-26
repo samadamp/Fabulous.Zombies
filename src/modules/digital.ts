@@ -41,12 +41,10 @@ function startDigitalTimer() {
   startButton.style.display = 'none';
   stopButton.style.display = 'inline-block';
 
-  // Clear any existing timer interval
   if (timerInterval !== null) {
     clearInterval(timerInterval);
   }
 
-  // Start a new timer interval
   timerInterval = setInterval(updateTimer, 1000);
 }
 
@@ -62,7 +60,7 @@ function stopTimer() {
 startButton.addEventListener('click', startDigitalTimer);
 stopButton.addEventListener('click', stopTimer);
 
-// Ensure the initial state of the buttons
+
 stopButton.style.display = 'none';
 
 
