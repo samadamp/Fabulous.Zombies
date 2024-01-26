@@ -54,9 +54,18 @@
 
     </div>
     <div id="digitalTimer" class="timer-content">
-      <h1>hej</h1>
-      <!-- Lägg till det specifika innehållet för Analog Timer här -->
-      <!-- html elementen som ligger i analog branchen -->
+      
+        <div id="timer">00:00</div>
+      
+        <div id="inputTime">
+          <label for="timeInput">Set Time (in minutes):</label>
+          <input type="number" id="timeInput" min="1" step="1" value="1" />
+        </div>
+      
+        <button id="startButton">Start Timer</button>
+        <button id="stopButton" style="display: none">Stop Timer</button>
+      </div>
+     
     </div>
     <div id="visualTimer" class="timer-content">
 
@@ -114,15 +123,5 @@
   </body>
 </html>
 <!-- DIGITAL TIMER -->
-<div id="digitalTimer" class="timer-content">
-  <div id="timer">00:00</div>
 
-  <div id="inputTime">
-    <label for="timeInput">Set Time (in minutes):</label>
-    <input type="number" id="timeInput" min="1" step="1" value="1" />
-  </div>
-
-  <button id="startButton">Start Timer</button>
-  <button id="stopButton" style="display: none">Stop Timer</button>
-</div>
 <!-- DIGITAL TIMER -->
