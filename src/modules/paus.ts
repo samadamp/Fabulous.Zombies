@@ -5,19 +5,20 @@ let isBreakAborted: boolean = false;
 let timerInterval: NodeJS.Timeout | null = null; // Deklarera timerInterval utanför omfånget, den här kan man ta bort sen när funktionen för att byta timer är kopplad, tror jag :P
 
 // Funktion för att starta paus-timern
-function startPauseTimer(breakCountdown: string, durationInMinutes: number): void {
+function startPauseTimer(targetElementId: string, durationInMinutes: number): void {
   // Hitta det element där nedräkningen ska visas
-  const timerElement = document.getElementById('breakCountdown') as HTMLElement;
+  const timerElement = document.getElementById(targetElementId) as HTMLElement;
   const abortButton = document.getElementById('abortBreakbutton') as HTMLButtonElement;
 
   // Kontrollera om elementet finns innan du fortsätter
   if (timerElement) {
     // Ange starttiden till angivet antal minuter
-    let countdownTime: moment.Duration = moment.duration(5, 'minutes',);
+    let countdownTime: moment.Duration = moment.duration(durationInMinutes, 'minutes');
 
     // Uppdatera funktionen för att visa den återstående tiden
     function updateCountdown() {
       timerElement.textContent = moment(countdownTime.asMilliseconds()).format('m:ss');
+      
     }
 
     // Eventlistener för Abort Break-knappen
@@ -53,5 +54,6 @@ function startPauseTimer(breakCountdown: string, durationInMinutes: number): voi
     }
   }
 }
+
 
 export default { startPauseTimer };

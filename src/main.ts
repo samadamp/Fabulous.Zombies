@@ -5,9 +5,10 @@ import  VisualTimer  from './modules/visual';
 import pausTimer from './modules/paus.ts';
 import timerModule from './modules/settimer';
 timerModule.createTimerElements();
-pausTimer.startPauseTimer("breakCountdown",5);
+pausTimer.startPauseTimer("breakCountdown",5)
 VisualTimer.initializeTimer();
 analogfunctions.startAnalogTimer();
+
 
 const handleTimerButtonClick = (timerStyle: string): void => {
   // Dölj alla timers
