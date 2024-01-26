@@ -19,7 +19,7 @@ function startAnalogTimer() {
   let timerRunning: boolean = false;
   let pauseTime: moment.Moment | null = null;
   let isPaused: boolean = false;
-  let remainingTimeAtPause: Duration | null = null; // variable to store remaining time at pause
+  let remainingTimeAtPause: Duration | null = null; // variabel för att spara tiden kvar vid pause
 
   
 
