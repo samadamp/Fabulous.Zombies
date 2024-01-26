@@ -8,8 +8,8 @@ function startAnalogTimer() {
   const startTimerBtn: HTMLButtonElement | null = document.getElementById('startTimerBtn') as HTMLButtonElement;
   const stopTimerBtn: HTMLButtonElement | null = document.getElementById('stopTimerBtn') as HTMLButtonElement;
   const pauseTimerBtn: HTMLButtonElement | null = document.getElementById('pauseTimerBtn') as HTMLButtonElement;
-  const pauseContainer = document.querySelector(".pauseContainer") as HTMLElement; // Get the pause container element
-  const abortBreakButton: HTMLButtonElement | null = document.getElementById('abortBreakbutton') as HTMLButtonElement;
+  const pauseContainer = document.querySelector(".pauseContainer-2") as HTMLElement; // Get the pause container element
+  const abortBreakButton: HTMLButtonElement | null = document.getElementById('abortBreakbutton-2') as HTMLButtonElement;
 
 
 
