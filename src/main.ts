@@ -1,6 +1,8 @@
 import "./scss/styles.scss";
-import moment from 'moment';
-import digitalfunctions from "./modules/digital";
+//import timerModule from './modules/settimer.ts';
+import digitalTimer from './modules/digital.ts'
+digitalTimer.updateTimer();
+
 
 
 
