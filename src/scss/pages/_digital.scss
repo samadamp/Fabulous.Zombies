@@ -1,45 +1,22 @@
-
-body{
-    
-        font-family: Arial, sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        background-color: black;
-      
-        
-
-.digitalContainer{
-    border-radius: 5%;
-    display: flex;
-    border: red;
-    gap: 3rem;
-    flex-direction: column;
-    background-color:whitesmoke;
-    align-items: center;
-    border: rgb(211, 32, 32);
-    border-width: 15;
-    color: black;
-    height: 30vh;
-    width: 30vh;
-    font-weight: 1000;
-    font-size: xx-large;
-    font-family: Arial, sans-serif;
-    }
-
-}
-.digibuttons{
-
-    border-radius: 5;
-    
-    flex-wrap:wrap;
-    #starttimer{
-        background-color: aqua;
+body {
+    // font-family: 'Arial', sans-serif;
+    // text-align: center;
+    // margin: 50px;
+  
+    #timer {
+      font-size: 2em;
+      margin-bottom: 20px;
     }
   
-    #abortTimer{
-    
+    #inputTime {
+      margin-bottom: 20px;
     }
-}
+  
+    #startButton,
+    #stopButton {
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  
+  }
