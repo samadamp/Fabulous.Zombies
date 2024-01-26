@@ -1,6 +1,8 @@
 body {
   
-    .pauseContainer {
+    .pauseContainer-1,
+    .pauseContainer-2,
+    .pauseContainer-3 {
         height: 30rem;
         width: 30rem;
         border-radius: 50%;
@@ -29,7 +31,6 @@ body {
         button {
             margin-top: rem;
         }
-        
 
     
     }

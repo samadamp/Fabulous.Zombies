@@ -95,7 +95,7 @@ function initializeTimer(): void {
   }
 }
 
-abortButton = document.getElementById('abortBreakbutton') as HTMLButtonElement;
+abortButton = document.getElementById('abortBreakbutton-1') as HTMLButtonElement;
 if (abortButton) {
   abortButton.addEventListener('click', resumeTimer);
 }
@@ -170,7 +170,7 @@ function pauseTimer(): void {
   const hideVisual = document.querySelector('#visualTimer') as HTMLElement;
   hideVisual.style.display = "none"
 
-  const showPaus = document.querySelector(".pauseContainer") as HTMLElement;
+  const showPaus = document.querySelector(".pauseContainer-1") as HTMLElement;
   showPaus.style.display = "flex"
 
 
@@ -186,7 +186,7 @@ function pauseTimer(): void {
 function resumeTimer(): void {
   const hideVisual = document.querySelector('#visualTimer') as HTMLElement;
   hideVisual.style.display = "flex"
-  const hidePaus = document.querySelector(".pauseContainer") as HTMLElement;
+  const hidePaus = document.querySelector(".pauseContainer-1") as HTMLElement;
   hidePaus.style.display = "none"
   if (isPaused && pausedTime) {
     const durationInMinutes = parseInt(durationInput?.value || '5', 10);
