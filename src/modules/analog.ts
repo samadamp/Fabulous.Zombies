@@ -7,9 +7,72 @@ function startAnalogTimer() {
   const timerSelect: HTMLSelectElement | null = document.getElementById('timerSelect') as HTMLSelectElement;
   const startTimerBtn: HTMLButtonElement | null = document.getElementById('startTimerBtn') as HTMLButtonElement;
   const stopTimerBtn: HTMLButtonElement | null = document.getElementById('stopTimerBtn') as HTMLButtonElement;
+  const pauseTimerBtn: HTMLButtonElement | null = document.getElementById('pauseTimerBtn') as HTMLButtonElement;
+  const pauseContainer = document.querySelector(".pauseContainer") as HTMLElement; // Get the pause container element
+  const abortBreakButton: HTMLButtonElement | null = document.getElementById('abortBreakbutton') as HTMLButtonElement;
+
+
 
   let timerInterval: number | null;
   let endTime: Moment | null;
+  let timerRunning: boolean = false;
+  let pauseTime: moment.Moment | null = null;
+  let isPaused: boolean = false;
+  let remainingTimeAtPause: Duration | null = null; // variable to store remaining time at pause
+
+  
+
+  pauseTimerBtn?.addEventListener('click', () => {
+    if (!timerRunning && !isPaused) return;
+
+    if (!isPaused) {
+      // Pause the timer
+      if (endTime) {
+        remainingTimeAtPause = moment.duration(endTime.diff(moment())); // Store the remaining time
+      }
+      clearInterval(timerInterval as number); // Stop the timer
+      isPaused = true;
+      timerRunning = false; // Update the timerRunning state
+      pauseContainer.style.display = "flex"; // Show the pause container
+    } else {
+      // Resume the timer
+      if (remainingTimeAtPause) {
+        endTime = moment().add(remainingTimeAtPause); // Reset the endTime using the remaining duration
+        timerInterval = setInterval(updateClock, 1000); // Restart the timer
+      }
+      isPaused = false;
+      timerRunning = true; // Update the timerRunning state
+      pauseContainer.style.display = "none"; // Hide the pause container
+    }
+  });
+  
+  abortBreakButton?.addEventListener('click', () => {
+    if (isPaused) {
+      // Resume the timer
+      if (remainingTimeAtPause) {
+        endTime = moment().add(remainingTimeAtPause); // Reset the endTime using the remaining duration
+        timerInterval = setInterval(updateClock, 1000); // Restart the timer
+      }
+      isPaused = false;
+      timerRunning = true;
+      pauseContainer.style.display = "none"; 
+    }
+  
+  });
+
+  function startAnalogTimerWithOffset(offsetSeconds: number) {
+    if (!endTime) {
+        console.error('End time not set.');
+        return;
+    }
+
+    // Adjust the end time by the paused duration
+    endTime.add(offsetSeconds, 'seconds');
+
+    // Restart the timer interval
+    clearInterval(timerInterval as number);
+    timerInterval = setInterval(updateClock, 1000);
+}
 
   function updateClock() {
     if (!endTime || !minuteHand || !secondHand) {
@@ -79,11 +142,15 @@ function startAnalogTimer() {
   }
   
   if (startTimerBtn && stopTimerBtn) {
-    startTimerBtn.addEventListener('click', setTimer);
-    stopTimerBtn.addEventListener('click', stopTimer);
-    
-  } else {
-    console.error('Start or stop button not found.');
+    startTimerBtn.addEventListener('click', () => {
+      setTimer();
+      timerRunning = true; // Update the timerRunning state when the timer starts
+    });
+    stopTimerBtn.addEventListener('click', () => {
+      stopTimer();
+      timerRunning = false; // Update the timerRunning state when the timer stops
+      isPaused = false; // Ensure isPaused is reset when timer stops
+    });
   }
 }
 
