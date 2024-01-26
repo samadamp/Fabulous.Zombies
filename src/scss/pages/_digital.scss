@@ -1,0 +1,22 @@
+body {
+    // font-family: 'Arial', sans-serif;
+    // text-align: center;
+    // margin: 50px;
+  
+    #timer {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+  
+    #inputTime {
+      margin-bottom: 20px;
+    }
+  
+    #startButton,
+    #stopButton {
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  
+  }

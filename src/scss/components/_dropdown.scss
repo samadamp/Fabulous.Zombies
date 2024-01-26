@@ -1,0 +1,33 @@
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding: 2rem;
+  z-index: 1;
+  width: 60vw;
+  height: 100vh;
+  position: absolute;
+  align-items: center;
+
+
+  .dropdown-menu {
+    
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    text-align: center;
+    margin-left: 6rem;
+    li {
+      list-style-type: none;
+
+      a {
+        color: grey;
+        text-decoration: none;
+      }
+    }
+  }
+  .dropdown-menu.show {
+    display: flex;
+    /* Ytterligare styling när menyn är synlig... */
+}
+}

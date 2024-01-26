@@ -1,0 +1,62 @@
+// Define primary button style as a mixin
+@mixin primary-button {
+    background-color: #000000;
+    border: 2px solid #000000;
+    border-radius: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0rem;
+    min-height: 50px;
+    width: 10%;
+    outline: none;
+    padding: 0rem;
+  }
+  
+  // Apply primary button style to .return-button
+  .return-button {
+    @include primary-button;
+    position: relative;
+    top: 9rem;
+    right: 7rem;
+  }
+
+  #startButton {  
+   @include primary-button();
+   width: 50%;
+   margin: 3rem;
+   min-height: 60px;
+   
+    
+}
+
+#startTimerBtn{
+  @include primary-button();
+  width: 40%;
+  margin-left: 1rem;
+}
+
+
+
+#pauseVisual{
+  
+  width: 50%;
+  cursor: pointer;
+ 
+}
+
+#stopButtonVisual{
+  
+  width: 50%;
+  cursor: pointer;
+}
+
+#startButtonVisual{
+  
+  width: 50%;
+  cursor: pointer;
+}
+
+  

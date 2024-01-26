@@ -1,7 +1,17 @@
-body{
-    background-color: rgb(190, 233, 140);
-    font-size: 4rem;
-    
-}
+@import "./base/reset";
+@import "./components/dropdown";
+@import "./components/header";
+@import "./pages/analog";
+@import "./pages/dropdown";
+@import "./pages/digital";
+@import 'pages/visual';
+@import "./pages/pause";
+@import 'pages/settimer';
+@import 'components/buttons';
+@import "pages/timesup";
+
+@import 'pages/digital';
 
 
+
+  
