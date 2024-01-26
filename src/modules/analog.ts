@@ -34,7 +34,7 @@ function startAnalogTimer() {
       }
       clearInterval(timerInterval as number); // Stop the timer
       isPaused = true;
-      timerRunning = false; // Update the timerRunning state
+      timerRunning = false; // Update the timerRunning
       pauseContainer.style.display = "flex"; // Show the pause container
       
     } else {
@@ -44,7 +44,7 @@ function startAnalogTimer() {
         timerInterval = setInterval(updateClock, 1000); // Restart the timer
       }
       isPaused = false;
-      timerRunning = true; // Update the timerRunning state
+      timerRunning = true; // Update the timerRunning
        // Hide the pause container
     }
   });
@@ -148,12 +148,12 @@ function startAnalogTimer() {
   if (startTimerBtn && stopTimerBtn) {
     startTimerBtn.addEventListener('click', () => {
       setTimer();
-      timerRunning = true; // Update the timerRunning state when the timer starts
+      timerRunning = true; 
     });
     stopTimerBtn.addEventListener('click', () => {
       stopTimer();
-      timerRunning = false; // Update the timerRunning state when the timer stops
-      isPaused = false; // Ensure isPaused is reset when timer stops
+      timerRunning = false; 
+      isPaused = false; 
     });
   }
 }

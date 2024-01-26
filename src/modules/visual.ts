@@ -62,12 +62,12 @@ function createTimerElements(): void {
     timeInputContainer.appendChild(durationLabel);
     timeInputContainer.appendChild(durationInput);
     timeInputContainer.appendChild(buttonContainer);
-    //append buttons to buttonContainer
+    
    
 
-    // Append timerContainer to the body
+    
     visualTimer!.appendChild(timerContainer as HTMLElement);
-    // Append timeInputContainer to the body
+    
     visualTimer!.appendChild(timeInputContainer);
 
     initialized = true;
@@ -104,7 +104,7 @@ function startTimer(): void {
   createTimerElements();
 
   if (timer) {
-    // Reset the timer if it was already started
+    // Reset the timer
     timer.style.height = '0%';
   }
 
@@ -113,7 +113,7 @@ function startTimer(): void {
   let startTime: moment.Moment;
 
   if (isPaused && pausedTime) {
-    // If resuming from pause, adjust the start time
+    
     const pausedDuration = moment().diff(pausedTime, 'milliseconds');
     startTime = moment().subtract(pausedDuration, 'milliseconds');
   } else {
@@ -154,7 +154,7 @@ function stopTimer(): void {
     const alarmWrapper = document.querySelector(".alarm-wrapper") as HTMLElement;
     alarmWrapper.style.display = "flex";
 
-  // Reset the timer without removing elements
+  
   if (timer) {
     timer.style.height = '0%';
   }

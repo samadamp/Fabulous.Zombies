@@ -32,7 +32,7 @@ function startDigitalTimer() {
   const selectedMinutes: number = parseInt(timeInput.value, 10);
 
   if (isNaN(selectedMinutes) || selectedMinutes <= 0) {
-    // If invalid values, do not start the timer
+    
     return;
   }
 

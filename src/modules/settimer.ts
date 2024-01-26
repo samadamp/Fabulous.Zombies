@@ -1,7 +1,7 @@
 // function setTimer
 import { Timer } from 'moment-timer';
 import moment from 'moment';
-
+//skapar mina element i html
 function createTimerElements(): void {
   const minutesElement = document.createElement('div');
   minutesElement.id = 'minutes';
@@ -57,7 +57,7 @@ function createTimerElements(): void {
   startButton.addEventListener('click', () => {
     const chosenMinutes = parseInt(minutesElement.textContent!, 10) || 0;
     const chosenSeconds = parseInt(secondsElement.textContent!, 10) || 0;
-
+//TIMERN
     const durationInSeconds: number = chosenMinutes * 60 + chosenSeconds;
 
     const chosenTime = moment()
@@ -83,7 +83,7 @@ function createTimerElements(): void {
       console.log(globalTime);
       
 
-      /* console.log(`Remaining Time: ${remainingMinutes}:${remainingSeconds}`); */
+     
       
       
 

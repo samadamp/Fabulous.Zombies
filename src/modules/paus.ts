@@ -2,7 +2,7 @@ import moment from 'moment';
 
 // Variabel för att hålla koll på om pausen är avbruten
 let isBreakAborted: boolean = false;
-let timerInterval: NodeJS.Timeout | null = null; // Deklarera timerInterval utanför omfånget, den här kan man ta bort sen när funktionen för att byta timer är kopplad, tror jag :P
+let timerInterval: number | null 
 
 // Funktion för att starta paus-timern
 function startPauseTimer(targetElementId: string, durationInMinutes: number): void {
@@ -27,7 +27,7 @@ function startPauseTimer(targetElementId: string, durationInMinutes: number): vo
         isBreakAborted = true;
         clearInterval(timerInterval!);
         
-        startNextTimer(); // Länka ihop med huvudklockan på något sätt
+        
       });
     }
 
@@ -40,18 +40,10 @@ function startPauseTimer(targetElementId: string, durationInMinutes: number): vo
       countdownTime.subtract(1, 'second');
       updateCountdown();
 
-      // När tiden är slut ska den tillbaka till interval timer
-      if (countdownTime.asSeconds() <= 0 && !isBreakAborted) {
-        clearInterval(timerInterval!);
-        
-        startNextTimer();
-      }
+      
     }
 
-    // Funktion för att starta nästa timer, Länka ihop med huvudklockan på något sätt?
-    function startNextTimer() {
-    
-    }
+  
   }
 }
 

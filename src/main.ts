@@ -4,6 +4,8 @@ import analogfunctions from "./modules/analog";
 import  VisualTimer  from './modules/visual';
 import pausTimer from './modules/paus.ts';
 import timerModule from './modules/settimer';
+import digitalTimer from './modules/digital.ts'
+digitalTimer.updateTimer();
 timerModule.createTimerElements();
 pausTimer.startPauseTimer("breakCountdown",5)
 VisualTimer.initializeTimer();
@@ -83,7 +85,7 @@ if(poster){
   poster.addEventListener("click", ()=>{
     nav.classList.toggle('show');
     poster.style.display = "none"
-    /* poster.style.height = "1px */
+    
     logo.style.visibility = "visible"
    
   })
@@ -131,12 +133,10 @@ if (startTimerBtn) {
 
 
 
-//när tiden är slut skall allting döljas och timesup komma upp på skärmen
 
 
 
 
-import digitalTimer from './modules/digital.ts'
-digitalTimer.updateTimer();
 
-//function för att komma tillbaka till huvudmenyn för times up knappen
+
+
