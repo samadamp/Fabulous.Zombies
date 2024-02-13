@@ -1,13 +1,143 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+  <title>Vite + TS</title>
+</head>
+
+<body>
+
+
+  <!--landingpage-->
+  <main class="landing-container">
+    <div class="image-container">
+      <img class="poster" src="./src/img/moutnain.jpg" alt="">
+    </div>
+    <div class="logo-box">
+      <img src="./src/img/camera.svg" alt="icon" class="logo">
+    </div>
+  </main>
+  <!--***************************************-->
+
+  <!--startpage-->
+
+  
+  <main class="starpage-container" style="display: none;">
+    <nav class="startpage-nav">
+      <h2>PHOTO SEARCH</h2>
+      <img src="./src/img/dropdown.svg" alt="menu" class="hamburger">
+    </nav>
+    <div class="randomphoto-container">
+    </div>
+   
+    <form class="startpage-form">
+      <input class="search-photo" type="text" placeholder="Search for a photo...">
+      <img src="./src/img/search.svg" alt="searchbtn" class="search">
+    </form>
+    <section class="all-photos"></section>
+
+  </main>
+  <!--***************************************-->
+
+
+  <!--dropdown-->
+  <main class="dropdown-container" style="display: none;">
+    <img src="./src/img/dropdown.svg" alt="menu" class="hamburger-1">
+    <section class="dropdown-text">
+      <h3 class="add-pic"><u>+ Add pic</u></h3>
+      <h3 class="saved-pic"><u>My saved pics</u></h3>
+      <h3 class="upload-pics"><u>My uploaded pics</u></h3>
+    </section>
+
+  </main>
+  <!--***************************************-->
+
+
+  <!--savedpics-->
+  <main class="savedpics-container" style="display: none;">
+    <nav class="startpage-nav">
+      <h2>PHOTO SEARCH</h2>
+      <img src="./src/img/dropdown.svg" alt="menu" class="hamburger-3">
+    </nav>
+    <h2 class="saved-text">My saved pics</h2>
+    <section class="allsaved-pics"></section>
+  
+  </main>
+  <!--***************************************-->
+
+
+  <!--onsaved-->
+  <main class="onsaved-container" style="display: none;">
+    <nav class="startpage-nav">
+      <h2>PHOTO SEARCH</h2>
+      <img src="./src/img/back.svg" alt="back" class="backBtn">
+      <img src="./src/img/dropdown.svg" alt="menu" class="hamburger-4">
+    </nav>
+    <section class="onsaved-pic"></section>
+  </main>
+  <!--***************************************-->
+
+
+
+
+
+
+  <!--addpic-->
+  <main class="addpic-container" style="display: none;">
+    <nav class="startpage-nav">
+      <h2>PHOTO SEARCH</h2>
+      <img src="./src/img/dropdown.svg" alt="menu" class="hamburger-2">
+    </nav>
+    <h2 class="upload-text">Upload pic</h2>
+    <aside>
+      <h3>choose pic from device</h3>
+     
+      <div class="upload-container">
+      <input type="file" id="upload" class="upload" hidden>
+      <label for="upload">browse</label>
+      <span id="file-chosen">No file chosen</span>
+    </div>
+
+    </aside>
+
+    
+<div class="inputs">
+      <input class="add-description" type="text" placeholder="add a description...">
+    </form>
+    <form>
+      <input class="photographer" type="text" placeholder="photgrapher...">
+    </form>
+  </div>
+
+   <!--  <button class="addBtn">Add pic</button> -->
+   <input type="submit" value="submit" class="addBtn" />
+
+  </main>
+  <!--***************************************-->
+
+
+
+
+  <!--onsaved-->
+  <main class="uploaded-container" style="display: none;">
+    <nav class="startpage-nav">
+      <h2>PHOTO SEARCH</h2>
+      <img src="./src/img/dropdown.svg" alt="menu" class="hamburger-5">
+    </nav>
+    
+    <section class="uploaded-pic">
+      <h4>No pic uploaded yet</h4>
+    </section>
+  </main>
+  <!--***************************************-->
+
+
+  <div id="app"></div>
+  <script type="module" src="/src/landingpage.ts"></script>
+</body>
+
 </html>

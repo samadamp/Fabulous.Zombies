@@ -1,0 +1,39 @@
+.onsaved-container{
+    width: 300px;
+    height: 450px;
+    border: 2px solid black;
+    background-color: rgb(169, 230, 238);
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+
+
+    .onsaved-pic{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+.saved-image {
+   width: 110px; 
+   height: 110px; 
+   cursor: pointer;
+}
+
+.clicked-image-container{
+    display: flex;
+    flex-direction: column;
+    
+    
+    max-width: 500px; 
+    max-height: 500px; 
+   
+}
+ .clicked-image-container img {
+    align-self: center;
+    width: 60%; 
+    height: auto; 
+}
+

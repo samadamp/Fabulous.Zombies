@@ -1,0 +1,86 @@
+.starpage-container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  background-color: rgb(169, 230, 238);
+  .randomphoto-container {
+    display: flex;
+    justify-content: center;
+    background: (#026177);
+    position: relative;
+
+
+  }
+
+  .startpage-form {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid black;
+    padding: 5px;
+  }
+
+  .search-photo {
+    font-size: 18px;
+  }
+
+  .search {
+    width: 8%;
+    margin-right: 15px;
+  }
+}
+
+.all-photos {
+  margin-top: 1rem;
+  align-items: center;
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 200px;
+  padding: 4px;
+  border-top: 2px solid black;
+
+
+
+  .pair-container {
+    display: flex;
+    gap: 2rem;
+    position: relative;
+    margin-left: 11px;
+
+    .heart {
+      position: absolute;
+      top: 1px;
+      width: 20px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .red-heart {
+      filter: invert(38%) sepia(89%) saturate(6021%) hue-rotate(348deg) brightness(104%) contrast(92%);
+    }
+
+  }
+
+  .all-photos::-webkit-scrollbar {
+    width: 10px;
+    /* Width of the scrollbar */
+  }
+
+
+
+  .all-photos::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    /* Color of the thumb */
+    border-radius: 10px;
+    /* Rounded corners */
+  }
+
+  .all-photos::-webkit-scrollbar-thumb:hover {
+    background-color: #c7c6c6;
+    /* Color of the thumb on hover */
+  }
+}

@@ -1,0 +1,35 @@
+@mixin primary-button{
+    cursor: pointer;
+}
+
+
+.hamburger {
+    @include primary-button;
+}
+
+.hamburger-1 {
+    @include primary-button;
+    width: 12%;
+}
+
+.hamburger-2 {
+    @include primary-button;
+}
+
+
+.hamburger-3 {
+    @include primary-button;
+}
+
+
+.hamburger-4 {
+    @include primary-button;
+}
+
+.hamburger-5 {
+    @include primary-button;
+}
+
+.backBtn{
+    @include primary-button()
+}

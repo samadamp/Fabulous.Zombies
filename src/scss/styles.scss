@@ -1,0 +1,18 @@
+@import "./pages/startpage.scss";
+@import "./pages/addpic.scss";
+@import "./pages/savedpics.scss";
+@import "./pages/onsaved.scss";
+@import "./pages/dropdown.scss";
+@import "./pages/landingpage.scss";
+@import "./pages/uploaded.scss";
+@import "./pages/components/buttons.scss";
+@import "./pages/components/nav.scss";
+
+
+* {
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand";
+}
