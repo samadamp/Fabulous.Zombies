@@ -1,3 +1,5 @@
+
+//Hämta dom-element från html och lägger dem i variabler
 const randomContainer = document.querySelector(".randomphoto-container") as HTMLElement;
 const allPicsContainer = document.querySelector(".all-photos") as HTMLElement;
 const allSavedPicsContainer = document.querySelector(".allsaved-pics") as HTMLElement;
@@ -9,6 +11,9 @@ const hamburgerMenu = document.querySelector('.hamburger') as HTMLImageElement;
 const onSavedContainer = document.querySelector(".onsaved-container") as HTMLElement;
 const onSavedPicSection = document.querySelector(".onsaved-pic") as HTMLElement;
 
+
+
+//Varibaler för att lagra datan och API:et
 let randomPic: any[] = [];
 let allPhotos: any[] = [];
 
@@ -18,7 +23,8 @@ const randomurl: string = "https://api.unsplash.com/photos/random?client_id=";
 const allurl: string = "https://api.unsplash.com/photos/?client_id=";
 const localStorageKey: string = "favorite_images";
 
-const fetchRandoPhotos = async (): Promise<void> => {
+//hämta slumpmässigbild
+async function fetchRandoPhotos(): Promise<void> {
     try {
         const response = await fetch(`${randomurl}${key}`);
 
@@ -41,7 +47,9 @@ const fetchRandoPhotos = async (): Promise<void> => {
     }
 };
 
-const fetchAllPhotos = async (): Promise<void> => {
+
+//hämta alla foton från API:et
+async function fetchAllPhotos(): Promise<void>  {
     try {
         const response = await fetch(`${allurl}${key}`);
 
@@ -69,15 +77,17 @@ const fetchAllPhotos = async (): Promise<void> => {
     }
 };
 
-const randomPhotos = (photo?: any) => {
+
+// Funktion för att visa ett random foto
+function randomPhotos(photo?: any):void {
     if (photo) {
         
         randomContainer.innerHTML = `<img src="${photo.urls.small}" alt="${photo.alt_description}" style="width: 90%; height: auto;" /> `;
     }
 };
 
-
-const updateHeartIconState = () => {
+// funktion för att uppdatera heart toggle sakimoj
+function updateHeartIconState() {
     const heartIcons = document.querySelectorAll(".heart-icon");
     heartIcons.forEach((heartIcon) => {
         const imageUrl = heartIcon.closest(".img-container")?.querySelector("img")?.src ?? '';
@@ -107,8 +117,8 @@ const updateHeartIconState = () => {
 
 
 
-
-const showAllPics = (photos: any[]) => {
+//function för att visa/rendera ut alla foton på hemsidan
+function showAllPics(photos: any[]): void{
     allPicsContainer.innerHTML = "";
 
     for (let i = 0; i < photos.length; i += 2) {
@@ -147,8 +157,8 @@ const showAllPics = (photos: any[]) => {
     updateHeartIconState();
 };
 
-
-const inputHandler = () => {
+//hantera inmatningen i sökfältet
+function inputHandler()  {
     const input = inputField.value.toLowerCase();
     let matches = [];
     if (input.length > 0) {
@@ -164,8 +174,12 @@ const inputHandler = () => {
         showAllPics(allPhotos);
     }
 };
+//lyssnar på inmatnignen
+inputField.addEventListener("keyup", inputHandler);
 
-const showMatches = (matches: any[]) => {
+
+//Visa de foton som matchar de man sökt på
+function showMatches(matches: any[]):void {
     allPicsContainer.innerHTML = '';
 
     matches.forEach((photo, index) => {
@@ -203,12 +217,13 @@ const showMatches = (matches: any[]) => {
     updateHeartIconState();
 };
 
-const isFavorite = (imageUrl: string) => {
+//kontroller om en bild är en favo dvs att man gillat den
+function isFavorite(imageUrl: string): any{
     const favorites = JSON.parse(localStorage.getItem(localStorageKey) || "[]");
     return favorites.some((item: { imageUrl: string }) => item.imageUrl === imageUrl);
 };
-
-const updateLocalStorage = (imageUrl: string, description: string, photographer: string) => {
+//uppdaterar local storage med en bild man gillat
+function updateLocalStorage(imageUrl: string, description: string, photographer: string):void {
     let favorites = JSON.parse(localStorage.getItem(localStorageKey) || "[]");
     const index = favorites.findIndex((item: { imageUrl: string }) => item.imageUrl === imageUrl);
 
@@ -225,8 +240,8 @@ const updateLocalStorage = (imageUrl: string, description: string, photographer:
 
   
 };
-
-const removeFromLocalStorage = (imageUrl: string) => {
+//tar bort en bild from localstorage när man tar bort gillningen
+function removeFromLocalStorage(imageUrl: string):void {
     let favorites = JSON.parse(localStorage.getItem(localStorageKey) || "[]");
     const index = favorites.findIndex((item: { imageUrl: string }) => item.imageUrl === imageUrl);
     if (index !== -1) {
@@ -236,8 +251,8 @@ const removeFromLocalStorage = (imageUrl: string) => {
         displaySavedImages();
     }
 };
-
-const displaySavedImages = () => {
+//Visar dem spara bilderna på i saved pics vyn
+function displaySavedImages() {
     const favorites = JSON.parse(localStorage.getItem(localStorageKey) || "[]");
 
     allSavedPicsContainer.innerHTML = "";
@@ -315,20 +330,18 @@ const displaySavedImages = () => {
         allSavedPicsContainer.appendChild(pairContainer);
     }
 };
-
+// köra dessa functioneer när fönstert laddas
 window.onload = () => {
     fetchRandoPhotos();
     fetchAllPhotos();
     displaySavedImages();
 };
-
-inputField.addEventListener("keyup", inputHandler);
-
+//lyssna på klick på hamburgerbilden
 hamburgerMenu.addEventListener('click', () => {
     starpageContainer.style.display = "none";
     dropdownContainer.style.display = "flex";
 });
-
+//exportert functionerna tillandingpage
 export default {
     fetchRandoPhotos,
     fetchAllPhotos,

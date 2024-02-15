@@ -1,4 +1,4 @@
-
+//HÄmta dom elementen
 const dropdownContainer = document.querySelector(".dropdown-container") as HTMLElement
 const hamburgerMenu = document.querySelector('.hamburger-1') as HTMLImageElement
 const starpageContainer = document.querySelector(".starpage-container") as HTMLElement
@@ -9,6 +9,8 @@ const savedPicsContainer = document.querySelector(".savedpics-container") as HTM
 const uploadContainer = document.querySelector(".uploaded-container") as HTMLElement
 const uploadButton = document.querySelector('.upload-pics') as HTMLElement
 
+
+//ta mig tillbaka till startpage
 function  returnFunction (){
 
 hamburgerMenu.addEventListener('click',() => {
@@ -17,7 +19,7 @@ dropdownContainer.style.display = "none"
 
 })
 }
-
+// ta mig till addpic vyn
 function addPicContainer (){
     addButton.addEventListener('click',() => {
         addContainer.style.display = "flex"
@@ -27,7 +29,7 @@ function addPicContainer (){
 
     
 }
-
+// ta mig till savedpics vyn
 function savedPicContainer (){
     savedButton.addEventListener('click', ()=>{
         savedPicsContainer.style.display ="flex"
@@ -36,7 +38,7 @@ function savedPicContainer (){
 
     })
 }
-
+//ta mig till uploads vyn
 function uploadPicContainer(){
     uploadButton.addEventListener('click', ()=>{
         uploadContainer.style.display = "flex"
@@ -46,5 +48,5 @@ function uploadPicContainer(){
 
 
 
-
+//exportera skitteen
 export default { returnFunction, addPicContainer,savedPicContainer,uploadPicContainer };

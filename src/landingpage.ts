@@ -1,3 +1,5 @@
+//importerar min scss och alla mina ts moduler.
+
 import "./scss/styles.scss";
 import startpageFunctions from "./modules/startpage";
 import dropdownFunctions from "./modules/dropdown"
@@ -35,7 +37,7 @@ const logo = document.querySelector('.logo') as HTMLElement;
 const landingContainer = document.querySelector(".landing-container") as HTMLElement;
 const starpageContainer = document.querySelector(".starpage-container") as HTMLElement
 
-
+//när man klickar på logan så ska landingpage gömmas och man kommer till startpage
 logo?.addEventListener("click", ()=>{
     landingContainer.style.display = "none"
     starpageContainer.style.display = "flex"

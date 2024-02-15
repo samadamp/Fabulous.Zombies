@@ -1,4 +1,4 @@
-
+//function för att ta mig tillbaka till dropdown menyn
 function backToMenu(){
     const addContainer = document.querySelector(".addpic-container") as HTMLElement
 const dropdownContainer = document.querySelector(".dropdown-container") as HTMLElement
@@ -11,6 +11,8 @@ dropdownContainer.style.display = "flex"
 })
 }
 
+
+// för att ändra upload sakimojen
 const upload = document.getElementById("upload") as HTMLElement;
 const fileChosen = document.getElementById("file-chosen")!;
 
@@ -33,7 +35,7 @@ showFile();
 
 
 
-
+//ladda upp en bild o så den sparas i upload containern
 function handleFileUpload() {
     const uploadInput = document.getElementById('upload') as HTMLInputElement;
     const fileChosen = document.getElementById('file-chosen') as HTMLElement;
@@ -61,7 +63,6 @@ function handleFileUpload() {
         const description = descriptionInput.value;
         const photographer = photographerInput.value;
 
-        // Perform additional validation if needed
 
         const uploadedImage = document.createElement('img');
         uploadedImage.src = URL.createObjectURL(file);
